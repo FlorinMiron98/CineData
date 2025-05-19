@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineData</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="16x16"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/images/cinema-projector-180x180.png') }}"
+    />
+    <link
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/images/cinema-projector-32x32.png') }}"
+    />
+    <link
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/images/cinema-projector-16x16.png') }}"
+    />
+    {% block styles %}
+    <!-- Bootstrap-Flask CSS -->
+    {{ bootstrap.load_css() }}
+    <!-- Styles CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/styles.css') }}"
+    />
+    {% endblock %} {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-nav mr-auto">
+        <!-- prettier-ignore -->
+        {{ render_nav_item('index', 'Home') }} 
+        {{ render_nav_item('explore', 'Explore') }} 
+        {{ render_nav_item('about', 'About') }}
+      </div>
+    </nav>
+    <!-- prettier-ignore -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- prettier-ignore -->
+    {% block scripts %}
+    <!-- Bootstrap-Flask script -->
+    {{ bootstrap.load_js() }}
+    <!-- Script JS -->
+    <script
+      src="{{ url_for('static', filename='js/script.js') }}"
+      type="module"
+    ></script>
+    {% endblock %}
+  </body>
+</html>
