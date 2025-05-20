@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+<!-- prettier-ignore -->
+{% block content %}
+<div class="search-container">
+  <div class="container py-4">
+    <div class="container d-flex justify-content-center p-0">
+      <div class="tabs-container p-3 p-md-5 rounded">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="movies-tabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="search-movies-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#search-movies-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="search-movies-tab-pane"
+              aria-selected="true"
+            >
+              Search Movies
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="watchlist-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#watchlist-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="watchlist-tab-pane"
+              aria-selected="false"
+            >
+              Watchlist
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="ratings-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#ratings-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="ratings-tab-pane"
+              aria-selected="false"
+            >
+              Ratings
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="search-movies-content">
+          <div
+            class="tab-pane fade show active"
+            id="search-movies-tab-pane"
+            role="tabpanel"
+            aria-labelledby="search-movies-tab"
+            tabindex="0"
+          >
+            Movies results will go here
+          </div>
+          <div
+            class="tab-pane fade"
+            id="watchlist-tab-pane"
+            role="tabpanel"
+            aria-labelledby="watchlist-tab"
+            tabindex="0"
+          >
+            Watchlist will go here
+          </div>
+          <div
+            class="tab-pane fade"
+            id="ratings-tab-pane"
+            role="tabpanel"
+            aria-labelledby="ratings-tab"
+            tabindex="0"
+          >
+            Ratings will go here
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
