@@ -4,10 +4,10 @@
 <h1 class="text-end display-3 fw-bold">
   CineData <i class="fa-solid fa-video"></i>
 </h1>
-<div class="container d-flex justify-content-end">
-  <div class="w-50">
+<div class="container d-flex justify-content-end p-0">
+  <div class="tabs-container p-4 rounded">
     <!-- Tabs -->
-    <ul class="nav nav-tabs mb-3" id="auth-tabs" role="tablist">
+    <ul class="nav nav-tabs mb-4" id="auth-tabs" role="tablist">
       <li class="nav-item" role="presentation">
         <button
           class="nav-link fw-bold active"
@@ -19,7 +19,7 @@
           aria-controls="register-tab-pane"
           aria-selected="true"
         >
-          Login
+          Register
         </button>
       </li>
       <li class="nav-item" role="presentation">
@@ -33,17 +33,17 @@
           aria-controls="login-tab-pane"
           aria-selected="false"
         >
-          Register
+          Login
         </button>
       </li>
     </ul>
-    <div class="tab-content" id="register-tab-container">
+    <div class="tab-content" id="form-container">
       <!-- Register Form -->
       <form
         class="tab-pane fade show active"
-        id="login-tab-pane"
+        id="register-tab-pane"
         role="tabpanel"
-        aria-labelledby="login-tab"
+        aria-labelledby="register-tab"
         tabindex="0"
       >
         <div class="mb-3">
@@ -55,14 +55,20 @@
             class="form-control"
             id="register-username"
             name="register-username"
-            aria-describedby="emailHelp"
+            required
           />
         </div>
         <div class="mb-3">
           <label for="register-password" class="form-label mb-1"
             >Password</label
           >
-          <input type="password" class="form-control" id="register-password" />
+          <input
+            type="password"
+            class="form-control"
+            id="register-password"
+            name="register-password"
+            required
+          />
         </div>
         <div class="mb-3">
           <label for="register-confirm-password" class="form-label mb-1"
@@ -72,19 +78,45 @@
             type="password"
             class="form-control"
             id="register-confirm-password"
+            name="register-confirm-password"
+            required
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary fw-bold border-0">
+          Submit
+        </button>
       </form>
-      <div
+      <form
         class="tab-pane fade"
-        id="register-tab-pane"
+        id="login-tab-pane"
         role="tabpanel"
-        aria-labelledby="register-tab"
+        aria-labelledby="login-tab"
         tabindex="0"
       >
-        Register
-      </div>
+        <div class="mb-3">
+          <label for="login-username" class="form-label mb-1">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="login-username"
+            name="login-username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="login-password" class="form-label mb-1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="login-password"
+            name="login-password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary fw-bold border-0">
+          Log In
+        </button>
+      </form>
     </div>
   </div>
 </div>
