@@ -23,8 +23,12 @@ html {
   --font-secondary: "Roboto", sans-serif;
 
   --color-primary: #edd118;
+  --color-primary-dark: #c7b125;
   --color-white: #f5f5f5;
   --color-black: #000;
+
+  --gradient-1: rgba(8, 8, 8, 0.85);
+  --gradient-2: rgba(8, 8, 8, 0.45);
 }
 
 /* ========================== */
@@ -42,4 +46,47 @@ h5,
 h6 {
   font-family: var(--font-primary);
   color: var(--color-primary);
+}
+
+#base {
+  background-image: linear-gradient(
+      to left,
+      var(--gradient-1) 60%,
+      var(--gradient-2)
+    ),
+    url("./images/cine-data-login.jpg");
+  background-size: cover;
+  background-position: center bottom;
+}
+
+#base .container:nth-child(1) {
+  min-height: 100vh;
+}
+
+#base .tabs-container {
+  width: 50%;
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+#auth-tabs .nav-link {
+  color: var(--color-white);
+}
+
+#auth-tabs .nav-link.active {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+#form-container label {
+  color: var(--color-white);
+}
+
+#form-container button {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  transition: background-color 0.25s linear;
+}
+
+#form-container button:hover {
+  background-color: var(--color-primary-dark);
 }
