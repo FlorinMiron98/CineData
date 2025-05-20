@@ -39,6 +39,7 @@ html {
 /* ========================== */
 body {
   min-height: 100vh;
+  font-family: var(--font-secondary);
 }
 
 h1,
@@ -51,7 +52,12 @@ h6 {
   color: var(--color-primary);
 }
 
-#base {
+.auth-container,
+.search-container {
+  min-height: 100vh;
+}
+
+.auth-container {
   background-image: linear-gradient(
       to left,
       var(--gradient-1) 60%,
@@ -62,11 +68,14 @@ h6 {
   background-position: center bottom;
 }
 
-#base .container:nth-child(1) {
-  min-height: 100vh;
+.search-container {
+  background-image: linear-gradient(var(--gradient-1, var(--gradient-1))),
+    url("./images/cine-data-main.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
-#base .tabs-container {
+.auth-container .tabs-container {
   width: 50%;
   background-color: var(--color-gray-transparent-1);
 }
