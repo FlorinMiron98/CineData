@@ -29,6 +29,9 @@ html {
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
+
+  --color-gray-transparent-1: rgba(128, 128, 128, 0.3);
+  --color-gray-transparent-2: rgba(128, 128, 128, 0.55);
 }
 
 /* ========================== */
@@ -65,7 +68,7 @@ h6 {
 
 #base .tabs-container {
   width: 50%;
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: var(--color-gray-transparent-1);
 }
 
 #auth-tabs .nav-link {
@@ -81,6 +84,10 @@ h6 {
   color: var(--color-white);
 }
 
+#form-container input {
+  background-color: var(--color-gray-transparent-2);
+}
+
 #form-container button {
   background-color: var(--color-primary);
   color: var(--color-black);
@@ -89,4 +96,27 @@ h6 {
 
 #form-container button:hover {
   background-color: var(--color-primary-dark);
+}
+
+/* ======================= */
+/* Media Queries */
+/* ======================= */
+
+/* Large screen sizes */
+@media only screen and (max-width: 992px) {
+  #base {
+    background-image: linear-gradient(var(--gradient-1), var(--gradient-1)),
+      url("./images/cine-data-login.jpg");
+  }
+
+  #base .tabs-container {
+    width: 80%;
+  }
+}
+
+/* Medium screen sizes */
+@media only screen and (max-width: 768px) {
+  #base .tabs-container {
+    width: 100%;
+  }
 }
