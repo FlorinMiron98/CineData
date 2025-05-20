@@ -27,6 +27,11 @@
     {% block styles %}
     <!-- Bootstrap-Flask CSS -->
     {{ bootstrap.load_css() }}
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <!-- Styles CSS -->
     <link
       rel="stylesheet"
@@ -34,18 +39,12 @@
     />
     {% endblock %} {% endblock %}
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="navbar-nav mr-auto">
-        <!-- prettier-ignore -->
-        {{ render_nav_item('index', 'Home') }} 
-        {{ render_nav_item('explore', 'Explore') }} 
-        {{ render_nav_item('about', 'About') }}
-      </div>
-    </nav>
-    <!-- prettier-ignore -->
-    {% block content %}
+  <body id="base">
+    <div class="container py-4">
+      <!-- prettier-ignore -->
+      {% block content %}
     {% endblock %}
+    </div>
 
     <!-- prettier-ignore -->
     {% block scripts %}
