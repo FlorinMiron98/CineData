@@ -3,82 +3,50 @@
 {% block content %}
 <div class="search-container">
   <div class="container py-4">
-    <div class="container d-flex justify-content-center p-0">
-      <div class="tabs-container p-3 p-md-5 rounded">
-        <!-- Tabs -->
-        <ul class="nav nav-tabs" id="movies-tabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="search-movies-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#search-movies-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="search-movies-tab-pane"
-              aria-selected="true"
-            >
-              Search Movies
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="watchlist-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#watchlist-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="watchlist-tab-pane"
-              aria-selected="false"
-            >
-              Watchlist
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link"
-              id="ratings-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#ratings-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="ratings-tab-pane"
-              aria-selected="false"
-            >
-              Ratings
-            </button>
-          </li>
-        </ul>
-        <div class="tab-content" id="search-movies-content">
-          <div
-            class="tab-pane fade show active"
-            id="search-movies-tab-pane"
-            role="tabpanel"
-            aria-labelledby="search-movies-tab"
-            tabindex="0"
-          >
-            Movies results will go here
+    <h1 class="display-2 fw-bold mb-4">Welcome, User!</h1>
+    <div class="tabs-container d-flex p-3 p-md-5 rounded">
+      <!-- Tabs -->
+      <div class="tab-buttons d-flex flex-column">
+        <button
+          class="tab-button rounded p-3 fw-bold focus-ring active"
+          data-tab="tab-1"
+        >
+          Movie Search
+        </button>
+        <button
+          class="tab-button rounded p-3 focus-ring fw-bold"
+          data-tab="tab-2"
+        >
+          Watchlist
+        </button>
+        <button
+          class="tab-button rounded p-3 focus-ring fw-bold"
+          data-tab="tab-3"
+        >
+          Ratings
+        </button>
+      </div>
+      <div class="tab-content active" id="tab-1">
+        <h2 class="fs-2 fw-bold mb-4">Search for a Movie</h2>
+        <form action="">
+          <div class="mb-3">
+            <label for="movie-name" class="form-label mb-1">Movie name</label>
+            <input
+              type="email"
+              class="form-control"
+              id="movie-name"
+              placeholder="e.g. Interstellar"
+              required
+            />
           </div>
-          <div
-            class="tab-pane fade"
-            id="watchlist-tab-pane"
-            role="tabpanel"
-            aria-labelledby="watchlist-tab"
-            tabindex="0"
-          >
-            Watchlist will go here
-          </div>
-          <div
-            class="tab-pane fade"
-            id="ratings-tab-pane"
-            role="tabpanel"
-            aria-labelledby="ratings-tab"
-            tabindex="0"
-          >
-            Ratings will go here
-          </div>
-        </div>
+          <button type="submit" class="btn btn-primary border-0">Submit</button>
+        </form>
+      </div>
+      <div class="tab-content" id="tab-2">
+        <h2 class="fs-2 fw-bold mb-4">Watchlist</h2>
+      </div>
+      <div class="tab-content" id="tab-3">
+        <h2 class="fs-2 fw-bold mb-4">Ratings</h2>
       </div>
     </div>
   </div>
