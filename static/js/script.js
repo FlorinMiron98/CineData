@@ -1,5 +1,10 @@
+import { API_KEY } from "./config.js";
+import fetchData from "./fetchData.js";
+
 const tabButtons = document.querySelectorAll(".tab-button");
 const tabContents = document.querySelectorAll(".tab-content");
+const searchMovieInput = document.getElementById("movie-name");
+const searchMovieForm = document.getElementById("search-movie-form");
 
 const handleTabClick = function () {
   tabButtons.forEach((tabButton) => {
@@ -18,5 +23,10 @@ const handleTabClick = function () {
     });
   });
 };
+
+searchMovieForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetchData(API_KEY, searchMovieInput.value);
+});
 
 handleTabClick();
