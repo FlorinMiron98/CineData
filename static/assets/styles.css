@@ -29,6 +29,7 @@ html {
   --color-primary-dark: #c7b125;
   --color-white: #f5f5f5;
   --color-black: #000;
+  --color-gray: #ababab;
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
@@ -41,7 +42,6 @@ html {
 /* Base Styling */
 /* ========================== */
 body {
-  min-height: 100vh;
   font-family: var(--font-secondary);
 }
 
@@ -94,6 +94,7 @@ h6 {
 
 #form-container input {
   background-color: var(--color-gray-transparent-2);
+  color: var(--color-white);
 }
 
 #form-container button {
@@ -116,23 +117,37 @@ h6 {
   background-size: cover;
 }
 
+.search-container nav {
+  gap: 2rem;
+}
+
+.search-container #logout-button {
+  background-color: var(--color-primary);
+  transition: background-color 0.25s linear;
+}
+
+.search-container #logout-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
 .search-container .tabs-container {
   background-color: var(--color-gray-transparent-1);
   gap: 3rem;
+  min-width: 50%;
 }
 
 .search-container .tab-buttons {
   gap: 1rem;
 }
 
-.search-container .tabs-container .tab-button {
+.search-container .tab-button {
   background-color: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
 }
 
-.search-container .tabs-container .tab-button.active,
-.search-container .tabs-container .tab-button:hover {
+.search-container .tab-button.active,
+.search-container .tab-button:hover {
   background-color: var(--color-primary);
   color: var(--color-black);
 }
@@ -147,6 +162,15 @@ h6 {
 
 .search-container .tab-content form label {
   color: var(--color-white);
+}
+
+.search-container .tab-content form input {
+  background-color: var(--color-gray-transparent-2);
+  color: var(--color-white);
+}
+
+.search-container .tab-content form input::placeholder {
+  color: var(--color-gray);
 }
 
 .search-container .tab-content form button {
@@ -166,19 +190,27 @@ h6 {
 
 /* Large screen sizes */
 @media only screen and (max-width: 992px) {
-  #base {
+  .auth-container {
     background-image: linear-gradient(var(--gradient-1), var(--gradient-1)),
       url("./images/cine-data-login.jpg");
   }
 
-  #base .tabs-container {
+  .auth-container .tabs-container {
     width: 80%;
+  }
+
+  .search-container .tabs-container {
+    min-width: 80%;
   }
 }
 
 /* Medium screen sizes */
 @media only screen and (max-width: 768px) {
-  #base .tabs-container {
+  .auth-container .tabs-container {
     width: 100%;
+  }
+
+  .search-container .tabs-container {
+    min-width: 100%;
   }
 }
