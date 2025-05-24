@@ -14,15 +14,15 @@ const fetchData = async function (apiKey, inputValue) {
   try {
     renderSpinner();
 
-    const data = await fetch(
+    const response = await fetch(
       `http://www.omdbapi.com/?apikey=${apiKey}&s=${inputValue}`
     );
-    const response = await data.json();
+    const data = await response.json();
 
     hideSpinner();
 
     main.classList.remove("d-none");
-    displaySearchResults(response.Search);
+    displaySearchResults(data.Search);
     main.scrollIntoView({ behavior: "smooth" });
   } catch (error) {
     console.log(error);
