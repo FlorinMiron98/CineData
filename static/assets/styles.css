@@ -89,6 +89,24 @@ h6 {
   }
 }
 
+.loader-spinner {
+  border: 1rem solid var(--color-gray); /* Light grey */
+  border-top: 1rem solid var(--color-primary); /* Blue */
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /* ============================== */
 /* Auth Container */
 /* ============================== */
@@ -247,6 +265,47 @@ main {
   color: var(--color-primary);
 }
 
+/* ====================================== */
+/* Movie Details Modal */
+/* ====================================== */
+.movie-details-modal .modal-body {
+  display: grid;
+  grid-template-areas:
+    "poster details"
+    "plot plot";
+  grid-template-columns: min-content;
+  column-gap: 1.6rem;
+}
+
+.movie-details-modal .modal-body .modal-poster-container {
+  max-height: 18.75rem;
+  grid-area: poster;
+}
+.movie-details-modal .modal-body .modal-movie-details {
+  grid-area: details;
+}
+.movie-details-modal .modal-body .movie-plot {
+  grid-area: plot;
+}
+
+.movie-details-modal .modal-body .table th {
+  color: var(--color-gray);
+}
+
+.movie-details-modal .modal-body .table .fa-star {
+  color: var(--color-primary);
+}
+
+.movie-details-modal .modal-footer button {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+.movie-details-modal .modal-footer button:active,
+.movie-details-modal .modal-footer button:hover {
+  background-color: var(--color-primary-dark);
+}
+
 /* ======================= */
 /* Media Queries */
 /* ======================= */
@@ -275,5 +334,16 @@ main {
 
   .search-container .tabs-container {
     min-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .movie-details-modal .modal-body {
+    grid-template-areas:
+      "poster"
+      "details"
+      "plot";
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
   }
 }
