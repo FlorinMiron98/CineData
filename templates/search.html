@@ -6,7 +6,7 @@
     <h1 class="fw-bold display-4 mb-0">Welcome, User!</h1>
     <button
       id="logout-button"
-      class="fw-bold py-1 py-sm-2 px-2 px-sm-4 rounded focus-ring"
+      class="fw-bold py-2 px-2 px-sm-4 rounded focus-ring"
     >
       Logout
     </button>
@@ -46,9 +46,12 @@
               required
             />
           </div>
-          <button type="submit" class="btn btn-primary border-0 fw-bold">
-            Search
-          </button>
+          <div class="d-flex align-items-center">
+            <button type="submit" class="btn btn-primary border-0 fw-bold">
+              Search
+            </button>
+            <div class="loader ms-4 d-none"></div>
+          </div>
         </form>
       </div>
       <div class="tab-content" id="tab-2">
@@ -60,5 +63,7 @@
     </div>
   </div>
 </header>
-<main class="container d-none py-5"></main>
+<main class="py-5">
+  <div class="search-results container"></div>
+</main>
 {% endblock %}
