@@ -3,13 +3,14 @@
 {% block content %}
 <header class="search-container d-flex flex-column">
   <nav class="container d-flex justify-content-between align-items-center py-4">
-    <h1 class="fw-bold display-4 mb-0">Welcome, User!</h1>
-    <button
+    <h1 class="fw-bold display-4 mb-0">Welcome, {{ user }}</h1>
+    <a
+      href="{{ url_for('logout') }}"
       id="logout-button"
-      class="fw-bold py-2 px-2 px-sm-4 border-0 rounded focus-ring"
+      class="text-decoration-none fw-bold py-2 px-2 px-sm-4 border-0 rounded focus-ring"
     >
       Logout
-    </button>
+    </a>
   </nav>
   <div class="container flex-grow-1 d-flex flex-column align-items-center mt-2">
     <div class="tab-buttons d-flex mt-5">
