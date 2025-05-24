@@ -30,6 +30,7 @@ html {
   --color-white: #f5f5f5;
   --color-black: #000;
   --color-gray: #ababab;
+  --color-gray-light: #bbbbbb;
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
@@ -58,6 +59,34 @@ h6 {
 .auth-container,
 .search-container {
   min-height: 100vh;
+}
+
+/* ============================== */
+/* Loader */
+/* ============================== */
+.loader {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 1rem 0 #fff, -1rem 0 #fff;
+  position: relative;
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #fff2;
+    box-shadow: 1rem 0 #fff2, -1rem 0 #fff;
+  }
+  50% {
+    background-color: #fff;
+    box-shadow: 1rem 0 #fff2, -1rem 0 #fff2;
+  }
+  100% {
+    background-color: #fff2;
+    box-shadow: 1rem 0 #fff, -1rem 0 #fff2;
+  }
 }
 
 /* ============================== */
@@ -182,6 +211,21 @@ h6 {
 .search-container .tab-content form button:active,
 .search-container .tab-content form button:hover {
   background-color: var(--color-primary-dark);
+}
+
+main {
+  background-color: var(--color-gray-light);
+}
+
+.search-results {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 230px));
+  gap: 1.8rem;
+}
+
+.search-results .card .card-img-container {
+  height: 320px;
 }
 
 /* ======================= */
