@@ -25,9 +25,9 @@ const displaySearchResults = function (movies) {
         <p class="card-text mb-4">
           <span class="fw-bold">Year:</span> ${movie.Year}
         </p>
-        <div class="d-flex justify-content-between mt-auto">
-          <a href="#" class="btn btn-sm btn-primary">Add to Watchlist</a>
-          <button>
+        <div class="d-flex justify-content-between align-items-center mt-auto">
+          <a href="#" class="add-to-watchlist-btn btn btn-sm btn-primary fw-bold border-0">Add to Watchlist</a>
+          <button class="movie-info-btn border-0" aria-label="Movie Details">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
