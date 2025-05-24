@@ -1,4 +1,5 @@
 import {
+  main,
   renderSpinner,
   hideSpinner,
   displaySearchResults,
@@ -14,7 +15,10 @@ const fetchData = async function (apiKey, inputValue) {
     const response = await data.json();
 
     hideSpinner();
+
+    main.classList.remove("d-none");
     displaySearchResults(response.Search);
+    main.scrollIntoView({ behavior: "smooth" });
   } catch (error) {
     console.log(error);
   }

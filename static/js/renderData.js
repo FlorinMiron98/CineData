@@ -1,3 +1,4 @@
+const main = document.querySelector("main");
 const searchResultsContainer = document.querySelector(".search-results");
 const loader = document.querySelector(".loader");
 
@@ -17,7 +18,7 @@ const displaySearchResults = function (movies) {
       return `
     <div class="card" data-movie-id="${movie.imdbID}">
       <div class="card-img-container">
-        <img src="${movie.Poster}" onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';" class="card-img-top h-100 w-100 object-fit-cover" alt="${movie.Title} Poster" />
+        <img src="${movie.Poster}" onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';" class="card-img-top h-100" alt="${movie.Title} Poster" />
       </div>
       <div class="card-body d-flex flex-column">
         <h5 class="card-title mb-1">${movie.Title}</h5>
@@ -39,4 +40,4 @@ const displaySearchResults = function (movies) {
   searchResultsContainer.insertAdjacentHTML("afterbegin", markup);
 };
 
-export { renderSpinner, hideSpinner, displaySearchResults };
+export { main, renderSpinner, hideSpinner, displaySearchResults };
