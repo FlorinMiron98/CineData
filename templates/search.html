@@ -66,4 +66,12 @@
 <main class="py-5 d-none">
   <div class="search-results container"></div>
 </main>
-{% endblock %}
+{% block scripts %}
+<!-- Bootstrap-Flask script -->
+{{ bootstrap.load_js() }}
+<!-- Script JS -->
+<script
+  src="{{ url_for('static', filename='js/fetchData.js') }}"
+  type="module"
+></script>
+{% endblock %} {% endblock %}

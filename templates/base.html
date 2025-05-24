@@ -46,13 +46,6 @@
 
     <!-- prettier-ignore -->
     {% block scripts %}
-    <!-- Bootstrap-Flask script -->
-    {{ bootstrap.load_js() }}
-    <!-- Script JS -->
-    <script
-      src="{{ url_for('static', filename='js/script.js') }}"
-      type="module"
-    ></script>
     {% endblock %}
   </body>
 </html>

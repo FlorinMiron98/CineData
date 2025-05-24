@@ -130,4 +130,12 @@
     </div>
   </div>
 </div>
-{% endblock %}
+{% block scripts %}
+<!-- Bootstrap-Flask script -->
+{{ bootstrap.load_js() }}
+<!-- Script JS -->
+<script
+  src="{{ url_for('static', filename='js/login.js') }}"
+  type="module"
+></script>
+{% endblock %} {% endblock %}
