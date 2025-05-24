@@ -1,3 +1,5 @@
+import { fetchMovieData } from "./fetchMovieData.js";
+
 const main = document.querySelector("main");
 const searchResultsContainer = document.querySelector(".search-results");
 const loader = document.querySelector(".loader");
@@ -27,7 +29,7 @@ const displaySearchResults = function (movies) {
         </p>
         <div class="d-flex justify-content-between align-items-center mt-auto">
           <a href="#" class="add-to-watchlist-btn btn btn-sm btn-primary fw-bold border-0">Add to Watchlist</a>
-          <button class="movie-info-btn border-0" aria-label="Movie Details">
+          <button class="movie-info-btn border-0" data-bs-toggle="modal" data-bs-target="#movieDetailsModal" aria-label="Movie Details">
             <i class="fa-solid fa-circle-info"></i>
           </button>
         </div>
@@ -39,5 +41,15 @@ const displaySearchResults = function (movies) {
 
   searchResultsContainer.insertAdjacentHTML("afterbegin", markup);
 };
+
+searchResultsContainer.addEventListener("click", (e) => {
+  if (e.target.closest(".movie-info-btn")) {
+    const movieInfoBtn = e.target.closest(".movie-info-btn");
+    const selectedMovieCard = movieInfoBtn.closest(".card");
+    const movieImdbID = selectedMovieCard.dataset.movieId;
+
+    fetchMovieData(movieImdbID);
+  }
+});
 
 export { main, renderSpinner, hideSpinner, displaySearchResults };
