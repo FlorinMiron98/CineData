@@ -179,6 +179,7 @@ h6 {
 .search-container #logout-button {
   background-color: var(--color-primary);
   transition: background-color 0.25s linear;
+  color: var(--color-black);
 }
 
 .search-container #logout-button:hover {
