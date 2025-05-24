@@ -213,6 +213,9 @@ h6 {
   background-color: var(--color-primary-dark);
 }
 
+/* ============================== */
+/* Search Results Container */
+/* ============================== */
 main {
   background-color: var(--color-gray-light);
 }
@@ -226,6 +229,22 @@ main {
 
 .search-results .card .card-img-container {
   height: 320px;
+}
+
+.search-results .card .add-to-watchlist-btn {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  transition: background-color 0.25s linear;
+}
+
+.search-results .card .add-to-watchlist-btn:active,
+.search-results .card .add-to-watchlist-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.search-results .card .movie-info-btn {
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 /* ======================= */
