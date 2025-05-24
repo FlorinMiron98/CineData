@@ -31,6 +31,7 @@ html {
   --color-black: #000;
   --color-gray: #ababab;
   --color-gray-light: #bbbbbb;
+  --color-red: #ff4500;
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
@@ -105,6 +106,13 @@ h6 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* ================================ */
+/* Error Elements Styling */
+/* ================================ */
+.search-error {
+  color: var(--color-red);
 }
 
 /* ============================== */

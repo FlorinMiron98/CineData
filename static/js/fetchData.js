@@ -9,6 +9,7 @@ import handleTabClick from "./tabs.js";
 
 const searchMovieInput = document.getElementById("movie-name");
 const searchMovieForm = document.getElementById("search-movie-form");
+const searchError = document.querySelector(".search-error");
 
 const fetchData = async function (apiKey, inputValue) {
   try {
@@ -17,7 +18,12 @@ const fetchData = async function (apiKey, inputValue) {
     const response = await fetch(
       `http://www.omdbapi.com/?apikey=${apiKey}&s=${inputValue}`
     );
+
     const data = await response.json();
+
+    if (data.Response === "False") {
+      throw new Error(data.Error);
+    }
 
     hideSpinner();
 
@@ -25,12 +31,20 @@ const fetchData = async function (apiKey, inputValue) {
     displaySearchResults(data.Search);
     main.scrollIntoView({ behavior: "smooth" });
   } catch (error) {
-    console.log(error);
+    searchError.classList.remove("d-none");
+    searchError.textContent = error.message;
+
+    hideSpinner();
   }
 };
 
 searchMovieForm.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (!searchError.classList.contains("d-none")) {
+    searchError.classList.add("d-none");
+  }
+
   fetchData(API_KEY, searchMovieInput.value);
 });
 
