@@ -27,6 +27,7 @@ const renderMovieDetails = function (data) {
         <div class="modal-poster-container">
           <img
             src=${data.Poster}
+            onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
             class="h-100 object-fit-cover"
             alt="${data.Title} Poster"
           />
