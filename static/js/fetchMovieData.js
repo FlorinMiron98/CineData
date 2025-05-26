@@ -1,6 +1,7 @@
 import { API_KEY } from "./config.js";
 import { renderMovieDetails, renderSpinner } from "./renderMovieDialog.js";
 import { renderWatchlistItem } from "./renderWatchlistItem.js";
+import { addToWatchlistDB } from "./addToWatchlist.js";
 
 // The actionType parameter checks if the fetched data is for displaying the dialog or adding a movie to watchlist
 const fetchMovieData = async function (movieId, actionType) {
@@ -20,6 +21,7 @@ const fetchMovieData = async function (movieId, actionType) {
     }
     if (actionType === "add to watchlist") {
       renderWatchlistItem(data);
+      addToWatchlistDB(data);
     }
   } catch (error) {
     console.log(error);
