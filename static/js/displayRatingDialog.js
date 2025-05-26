@@ -80,3 +80,4 @@ closeDialogBtn.addEventListener("click", () => ratingStarsDialog.close());
 handleSelectHighlightStar();
 
 export default handleDisplayRatingDialog;
+export { selectedRating, ratingStarsDialog };
