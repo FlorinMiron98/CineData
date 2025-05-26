@@ -6,6 +6,7 @@ import {
   displaySearchResults,
 } from "./renderData.js";
 import handleTabClick from "./tabs.js";
+import handleAddToWatchlist from "./addToWatchlist.js";
 
 const searchMovieInput = document.getElementById("movie-name");
 const searchMovieForm = document.getElementById("search-movie-form");
@@ -49,3 +50,4 @@ searchMovieForm.addEventListener("submit", (e) => {
 });
 
 handleTabClick();
+handleAddToWatchlist();
