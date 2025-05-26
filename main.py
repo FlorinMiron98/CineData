@@ -40,12 +40,11 @@ class User(UserMixin, db.Model):
     ratings: Mapped[list['Rating']] = relationship('Rating', backref='user', cascade='all, delete-orphan')
 
 class WatchlistItem(db.Model):
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    movie_id: Mapped[str] = mapped_column(String, primary_key=True)
     title: Mapped[str] = mapped_column(String, nullable=False)
     release_date: Mapped[str] = mapped_column(String)
     rating: Mapped[float] = mapped_column(Float)
     poster_url: Mapped[str] = mapped_column(String)
-    movie_id: Mapped[str] = mapped_column(String)
 
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
 
@@ -131,6 +130,17 @@ def watchlist():
         'Poster': movie.poster_url,
         'imdbID': movie.movie_id
     } for movie in watchlist])
+
+@app.route('/delete_from_watchlist/<string:movie_id>', methods=['DELETE'])
+@login_required
+def delete_from_watchlist(movie_id):
+    movie = WatchlistItem.query.get_or_404(movie_id)
+    if movie.user_id != current_user.id:
+        return jsonify({'error': 'Unauthorized'}), 403
+    
+    db.session.delete(movie)
+    db.session.commit()
+    return jsonify({'message': 'Movie removed from watchlist'})
 
 @app.route('/logout')
 def logout():
