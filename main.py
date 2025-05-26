@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
-from sqlalchemy import Integer, String
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy import Integer, String, Float, ForeignKey
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_bootstrap import Bootstrap5
 import secrets
@@ -34,7 +34,26 @@ def load_user(user_id):
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(50), unique=True)
-    password: Mapped[str] = mapped_column(String(100)) 
+    password: Mapped[str] = mapped_column(String(100))
+
+    watchlist: Mapped[list['WatchlistItem']] = relationship('WatchlistItem', backref='user', cascade='all, delete-orphan')
+    ratings: Mapped[list['Rating']] = relationship('Rating', backref='user', cascade='all, delete-orphan')
+
+class WatchlistItem(db.Model):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    title: Mapped[str] = mapped_column(String, nullable=False)
+    release_date: Mapped[str] = mapped_column(String)
+    rating: Mapped[float] = mapped_column(Float)
+    poster_url: Mapped[str] = mapped_column(String)
+
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
+
+class Rating(db.Model):
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    title: Mapped[str] = mapped_column(String)
+    rating: Mapped[int] = mapped_column(Integer, nullable=False)
+
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
 
 with app.app_context():
     db.create_all()
