@@ -1,6 +1,6 @@
 const ratingsContainer = document.querySelector(".ratings-container");
 
-const renderRatingItem = function (data) {
+const renderRatingItem = function (data, userRating) {
   const markup = `
     <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
       data.Title
@@ -17,7 +17,7 @@ const renderRatingItem = function (data) {
                 data.Released ? data.Released.split(" ")[2] : "N/A"
               }</p>
               <p class="rating-user mb-0 mt-auto fw-bold">
-                User rating: <i class="fa-solid fa-star"></i> 10
+                User rating: <i class="fa-solid fa-star"></i> ${userRating}
               </p>
             </div>
             <div class="rating-item-buttons d-flex flex-column ms-auto">
@@ -32,3 +32,5 @@ const renderRatingItem = function (data) {
     `;
   ratingsContainer.insertAdjacentHTML("afterbegin", markup);
 };
+
+export { ratingsContainer, renderRatingItem };
