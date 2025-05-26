@@ -2,9 +2,9 @@ const ratingsContainer = document.querySelector(".ratings-container");
 
 const renderRatingItem = function (data) {
   const markup = `
-    <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-id="${
-      data.imdbID
-    }">
+    <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
+      data.Title
+    }" data-movie-id="${data.imdbID}">
             <img
               src=${data.Poster}
               class="h-100 rating-item-poster"

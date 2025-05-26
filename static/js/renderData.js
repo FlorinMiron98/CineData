@@ -18,7 +18,7 @@ const displaySearchResults = function (movies) {
   const markup = movies
     .map((movie) => {
       return `
-    <div class="card" data-movie-id="${movie.imdbID}">
+    <div class="card" data-movie-title="${movie.Title}" data-movie-id="${movie.imdbID}">
       <div class="card-img-container">
         <img src="${movie.Poster}" onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';" class="card-img-top h-100" alt="${movie.Title} Poster" />
       </div>
