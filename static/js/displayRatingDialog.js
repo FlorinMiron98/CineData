@@ -1,7 +1,9 @@
 const ratingStarsDialog = document.getElementById("rating-stars-dialog");
 const ratingStarsContainer = document.querySelector(".rating-stars");
+const ratingStarsTitle = document.querySelector(".rating-stars-title");
 const userRatingValue = document.querySelector(".user-rating-value");
 const closeDialogBtn = document.querySelector(".close-dialog-btn");
+
 const totalStars = 10;
 
 let selectedRating = 1;
@@ -58,6 +60,16 @@ const handleDisplayRatingDialog = function () {
     if (e.target.classList.contains("rating-btn")) {
       const ratingBtn = e.target;
       const movieEl = ratingBtn.closest("[data-movie-id]");
+      const movieId = movieEl.dataset.movieId;
+      const movieTitle = movieEl.dataset.movieTitle;
+      const moviePoster = movieEl.dataset.moviePoster;
+
+      ratingStarsDialog.setAttribute("data-movie-id", movieId);
+      ratingStarsDialog.setAttribute("data-movie-title", movieTitle);
+      ratingStarsDialog.setAttribute("data-movie-poster", moviePoster);
+
+      ratingStarsTitle.textContent = movieTitle;
+
       ratingStarsDialog.showModal();
     }
   });
