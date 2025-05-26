@@ -39,6 +39,9 @@ html {
 
   --color-gray-transparent-1: rgba(128, 128, 128, 0.3);
   --color-gray-transparent-2: rgba(128, 128, 128, 0.55);
+
+  --toast-bg-red: rgba(255, 0, 0, 0.8);
+  --toast-bg-green: rgba(0, 200, 0, 0.8);
 }
 
 /* ========================== */
@@ -370,6 +373,13 @@ main {
 .movie-details-modal .modal-footer button:active,
 .movie-details-modal .modal-footer button:hover {
   background-color: var(--color-primary-dark);
+}
+
+/* =================================== */
+/* Watchlist Toast */
+/* =================================== */
+.toast-container .white-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
 }
 
 /* ======================= */
