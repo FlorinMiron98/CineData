@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, flash, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -30,7 +30,7 @@ login_manager.init_app(app)
 def load_user(user_id):
     return db.get_or_404(User, user_id)
 
-# Create Table in Database
+# Create User Table in Database
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(50), unique=True)
@@ -100,6 +100,33 @@ def home():
 @login_required
 def search():
     return render_template('search.html', user=current_user.username)
+
+# Create the table for a single movie in the database
+@app.route('/add_to_watchlist', methods=['GET','POST'])
+@login_required
+def add_to_watchlist():
+    data = request.get_json()
+    movie = WatchlistItem(
+        user_id=current_user.id,
+        title=data['title'],
+        release_date=data['release_date'],
+        rating=data['rating'],
+        poster_url=data['poster_url']
+    )
+    db.session.add(movie)
+    db.session.commit()
+    return jsonify({'message': 'Movie added to your list'})
+
+@app.route('/watchlist')
+@login_required
+def watchlist():
+    watchlist = WatchlistItem.query.filter_by(user_id=current_user.id).all()
+    return jsonify([{
+        'Title': movie.title,
+        'Released': movie.release_date,
+        'imdbRating': movie.rating,
+        'Poster': movie.poster_url
+    } for movie in watchlist])
 
 @app.route('/logout')
 def logout():
