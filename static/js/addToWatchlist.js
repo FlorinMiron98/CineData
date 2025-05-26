@@ -14,6 +14,7 @@ const addToWatchlistDB = async function (fetchedData) {
     release_date: fetchedData.Released,
     rating: fetchedData.imdbRating,
     poster_url: fetchedData.Poster,
+    movie_id: fetchedData.imdbID,
   };
 
   const response = await fetch("/add_to_watchlist", {

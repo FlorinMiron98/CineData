@@ -45,6 +45,7 @@ class WatchlistItem(db.Model):
     release_date: Mapped[str] = mapped_column(String)
     rating: Mapped[float] = mapped_column(Float)
     poster_url: Mapped[str] = mapped_column(String)
+    movie_id: Mapped[str] = mapped_column(String)
 
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
 
@@ -52,6 +53,7 @@ class Rating(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     title: Mapped[str] = mapped_column(String)
     rating: Mapped[int] = mapped_column(Integer, nullable=False)
+    movie_id: Mapped[str] = mapped_column(String)
 
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
 
@@ -111,7 +113,8 @@ def add_to_watchlist():
         title=data['title'],
         release_date=data['release_date'],
         rating=data['rating'],
-        poster_url=data['poster_url']
+        poster_url=data['poster_url'],
+        movie_id=data['movie_id']
     )
     db.session.add(movie)
     db.session.commit()
