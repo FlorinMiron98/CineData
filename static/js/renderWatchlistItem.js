@@ -12,7 +12,7 @@ const renderWatchlistItem = function (data) {
               alt=""
             />
             <div class="watchlist-item-content d-flex flex-column">
-              <h3 class="watchlist-item-name fs-3">${data.Title}</h3>
+              <h3 class="watchlist-item-name fs-4">${data.Title}</h3>
               <p class="watchlist-item-release-date">${
                 data.Released ? data.Released.split(" ")[2] : "N/A"
               }</p>
