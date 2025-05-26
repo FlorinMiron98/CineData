@@ -32,6 +32,7 @@ html {
   --color-gray: #ababab;
   --color-gray-light: #bbbbbb;
   --color-red: #ff4500;
+  --color-red-dark: #cc3600;
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
@@ -240,6 +241,62 @@ h6 {
   background-color: var(--color-primary-dark);
 }
 
+/* =================================== */
+/* Watchlist */
+/* =================================== */
+.watchlist-container {
+  max-height: 15.625rem;
+  gap: 1.4rem;
+}
+
+.watchlist-container .fa-star {
+  color: var(--color-primary);
+}
+
+.watchlist-item {
+  background-color: var(--color-gray-transparent-2);
+  gap: 1rem;
+}
+
+.watchlist-item-poster {
+  max-height: 8.25rem;
+}
+
+.watchlist-item-content {
+  color: var(--color-white);
+}
+
+.watchlist-item-rating {
+  justify-self: end;
+}
+
+.watchlist-item-buttons {
+  gap: 0.8rem;
+}
+
+.watchlist-item-buttons .remove-btn,
+.watchlist-item-buttons .rating-btn {
+  color: var(--color-black);
+}
+
+.watchlist-item-buttons .remove-btn {
+  background-color: var(--color-red);
+}
+
+.watchlist-item-buttons .remove-btn:active,
+.watchlist-item-buttons .remove-btn:hover {
+  background-color: var(--color-red-dark);
+}
+
+.watchlist-item-buttons .rating-btn {
+  background-color: var(--color-primary);
+}
+
+.watchlist-item-buttons .rating-btn:active,
+.watchlist-item-buttons .rating-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
 /* ============================== */
 /* Search Results Container */
 /* ============================== */
@@ -347,6 +404,14 @@ main {
 }
 
 @media only screen and (max-width: 576px) {
+  .watchlist-item-poster {
+    max-height: 7.25rem;
+  }
+
+  .watchlist-item {
+    gap: 0.6rem;
+  }
+
   .movie-details-modal .modal-body {
     grid-template-areas:
       "poster"
