@@ -1,22 +1,29 @@
-const tabButtons = document.querySelectorAll(".tab-button");
-const tabContents = document.querySelectorAll(".tab-content");
+import { renderWatchlistItem } from "./renderWatchlistItem.js";
 
-const handleTabClick = function () {
-  tabButtons.forEach((tabButton) => {
-    tabButton.addEventListener("click", () => {
-      const tabId = tabButton.getAttribute("data-tab");
+const watchlistPlaceholder = document.querySelector(
+  ".watchlist-empty-paragraph"
+);
 
-      tabButtons.forEach((tabButton) => {
-        tabButton.classList.remove("active");
-      });
-      tabContents.forEach((tabContent) => {
-        tabContent.classList.remove("active");
-      });
-      tabButton.classList.add("active");
-      const selectedTab = document.getElementById(tabId);
-      selectedTab.classList.add("active");
-    });
+const fetchStoredMovies = async function () {
+  try {
+    const response = await fetch("/watchlist");
+    const data = await response.json();
+
+    if (data.length > 0) {
+      watchlistPlaceholder.classList.add("d-none");
+      for (const movieItem of data) {
+        renderWatchlistItem(movieItem);
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const handleLoadStoredMovies = function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchStoredMovies();
   });
 };
 
-handleTabClick();
+export default handleLoadStoredMovies;
