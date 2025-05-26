@@ -28,7 +28,7 @@ const displaySearchResults = function (movies) {
           <span class="fw-bold">Year:</span> ${movie.Year}
         </p>
         <div class="d-flex justify-content-between align-items-center mt-auto">
-          <a href="#" class="add-to-watchlist-btn btn btn-sm btn-primary fw-bold border-0">Add to Watchlist</a>
+          <button class="add-to-watchlist-btn btn btn-sm btn-primary fw-bold border-0" data-bs-toggle="toast" data-bs-target="#liveToast">Add to Watchlist</button>
           <button class="movie-info-btn border-0" data-bs-toggle="modal" data-bs-target="#movieDetailsModal" aria-label="Movie Details">
             <i class="fa-solid fa-circle-info"></i>
           </button>
@@ -44,11 +44,12 @@ const displaySearchResults = function (movies) {
 
 searchResultsContainer.addEventListener("click", (e) => {
   if (e.target.closest(".movie-info-btn")) {
+    const actionType = "display dialog";
     const movieInfoBtn = e.target.closest(".movie-info-btn");
     const selectedMovieCard = movieInfoBtn.closest(".card");
     const movieImdbID = selectedMovieCard.dataset.movieId;
 
-    fetchMovieData(movieImdbID);
+    fetchMovieData(movieImdbID, actionType);
   }
 });
 
