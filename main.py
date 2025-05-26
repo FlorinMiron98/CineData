@@ -128,7 +128,8 @@ def watchlist():
         'Title': movie.title,
         'Released': movie.release_date,
         'imdbRating': movie.rating,
-        'Poster': movie.poster_url
+        'Poster': movie.poster_url,
+        'imdbID': movie.movie_id
     } for movie in watchlist])
 
 @app.route('/logout')
