@@ -261,7 +261,7 @@ h6 {
 }
 
 /* =================================== */
-/* Watchlist */
+/* Watchlist and Ratings Containers */
 /* =================================== */
 .watchlist-container,
 .ratings-container {
@@ -404,6 +404,66 @@ main {
   background-color: var(--color-primary-dark);
 }
 
+/* ================================= */
+/* Rating Stars Dialog */
+/* ================================= */
+#rating-stars-dialog {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 45%;
+}
+
+#rating-stars-dialog::backdrop {
+  background-color: var(--color-gray-transparent-2);
+}
+
+#rating-stars-dialog .close-dialog-btn {
+  background-color: var(--color-primary);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: background-color 0.25s linear;
+}
+
+#rating-stars-dialog .close-dialog-btn:active,
+#rating-stars-dialog .close-dialog-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+#rating-stars-dialog .rating-stars {
+  gap: 0.8rem;
+}
+
+#rating-stars-dialog .fa-star {
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: var(--color-gray);
+}
+
+#rating-stars-dialog .fa-star.hovered,
+#rating-stars-dialog .fa-star.selected {
+  color: var(--color-primary);
+}
+
+#rating-stars-dialog .user-rating .fa-star {
+  color: var(--color-blue);
+  cursor: default;
+}
+
+#rating-stars-dialog .submit-rating-btn {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+}
+
+#rating-stars-dialog .submit-rating-btn:active,
+#rating-stars-dialog .submit-rating-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
 /* =================================== */
 /* Watchlist Toast */
 /* =================================== */
@@ -438,7 +498,7 @@ main {
   }
 
   .search-container .tabs-container {
-    min-width: 100%;
+    min-width: 90%;
   }
 }
 
@@ -458,5 +518,13 @@ main {
       "plot";
     grid-template-columns: 1fr;
     row-gap: 1rem;
+  }
+
+  #rating-stars-dialog .rating-stars {
+    gap: 0.3rem;
+  }
+
+  #rating-stars-dialog .fa-star {
+    font-size: 1.2rem;
   }
 }
