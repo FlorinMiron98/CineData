@@ -8,6 +8,23 @@ const watchlistToastMessage = watchlistToastEl.querySelector(
   ".watchlist-toast-message"
 );
 
+const addToWatchlistDB = async function (fetchedData) {
+  const movieData = {
+    title: fetchedData.Title,
+    release_date: fetchedData.Released,
+    rating: fetchedData.imdbRating,
+    poster_url: fetchedData.Poster,
+  };
+
+  const response = await fetch("/add_to_watchlist", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(movieData),
+  });
+  const data = await response.json();
+  console.log(data);
+};
+
 const handleAddToWatchlist = function () {
   document.body.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-to-watchlist-btn")) {
@@ -41,3 +58,4 @@ const handleAddToWatchlist = function () {
 };
 
 export default handleAddToWatchlist;
+export { addToWatchlistDB };
