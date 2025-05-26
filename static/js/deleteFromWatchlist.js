@@ -18,7 +18,7 @@ const deleteFromWatchlistDB = async function (movieId) {
   }
 };
 
-const handleDelteFromWatchlist = function () {
+const handleDeleteFromWatchlist = function () {
   watchlistContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {
       const removeBtn = e.target;
@@ -42,4 +42,4 @@ const handleDelteFromWatchlist = function () {
   });
 };
 
-export default handleDelteFromWatchlist;
+export default handleDeleteFromWatchlist;
