@@ -10,6 +10,7 @@ import handleAddToWatchlist from "./addToWatchlist.js";
 import handleLoadStoredMovies from "./login.js";
 import handleDeleteFromWatchlist from "./deleteFromWatchlist.js";
 import handleDisplayRatingDialog from "./displayRatingDialog.js";
+import handleAddToRating from "./addToRating.js";
 
 const searchMovieInput = document.getElementById("movie-name");
 const searchMovieForm = document.getElementById("search-movie-form");
@@ -57,3 +58,4 @@ handleAddToWatchlist();
 handleLoadStoredMovies();
 handleDeleteFromWatchlist();
 handleDisplayRatingDialog();
+handleAddToRating();
