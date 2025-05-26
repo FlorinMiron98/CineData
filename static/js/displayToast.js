@@ -21,6 +21,16 @@ const displayToast = function (notification) {
     watchlistToastMessage.textContent = "Movie deleted from watchlist";
     watchlistToast.show();
   }
+  if (notification === "rate") {
+    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
+    watchlistToastMessage.textContent = "Movie added to ratings";
+    watchlistToast.show();
+  }
+  if (notification === "rated") {
+    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
+    watchlistToastMessage.textContent = "Movie already rated";
+    watchlistToast.show();
+  }
 };
 
 export default displayToast;
