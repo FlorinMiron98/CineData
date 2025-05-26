@@ -1,9 +1,13 @@
 import { API_KEY } from "./config.js";
 import { renderMovieDetails, renderSpinner } from "./renderMovieDialog.js";
+import { renderWatchlistItem } from "./renderWatchlistItem.js";
 
-const fetchMovieData = async function (movieId) {
+// The actionType parameter checks if the fetched data is for displaying the dialog or adding a movie to watchlist
+const fetchMovieData = async function (movieId, actionType) {
   try {
-    renderSpinner();
+    if (actionType === "display dialog") {
+      renderSpinner();
+    }
 
     const response = await fetch(
       `http://www.omdbapi.com/?apikey=${API_KEY}&i=${movieId}`
@@ -11,7 +15,12 @@ const fetchMovieData = async function (movieId) {
     const data = await response.json();
     console.log(data);
 
-    renderMovieDetails(data);
+    if (actionType === "display dialog") {
+      renderMovieDetails(data);
+    }
+    if (actionType === "add to watchlist") {
+      renderWatchlistItem(data);
+    }
   } catch (error) {
     console.log(error);
   }
