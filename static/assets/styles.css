@@ -33,6 +33,7 @@ html {
   --color-gray-light: #bbbbbb;
   --color-red: #ff4500;
   --color-red-dark: #cc3600;
+  --color-blue: #87ceeb;
 
   --gradient-1: rgba(8, 8, 8, 0.85);
   --gradient-2: rgba(8, 8, 8, 0.45);
@@ -262,7 +263,8 @@ h6 {
 /* =================================== */
 /* Watchlist */
 /* =================================== */
-.watchlist-container {
+.watchlist-container,
+.ratings-container {
   max-height: 15.625rem;
   gap: 1.4rem;
 }
@@ -271,17 +273,25 @@ h6 {
   color: var(--color-primary);
 }
 
-.watchlist-item {
+.watchlist-item,
+.rating-item {
   background-color: var(--color-gray-transparent-2);
   gap: 1rem;
 }
 
-.watchlist-item-poster {
+.watchlist-item-poster,
+.rating-item-poster {
   max-height: 8.25rem;
 }
 
-.watchlist-item-content {
+.watchlist-item-content,
+.rating-user,
+.rating-item-release-date {
   color: var(--color-white);
+}
+
+.rating-user .fa-star {
+  color: var(--color-blue);
 }
 
 .watchlist-item-rating {
@@ -293,7 +303,8 @@ h6 {
 }
 
 .watchlist-item-buttons .remove-btn,
-.watchlist-item-buttons .rating-btn {
+.watchlist-item-buttons .rating-btn,
+.rating-item-buttons .change-rating-btn {
   color: var(--color-black);
 }
 
@@ -306,10 +317,13 @@ h6 {
   background-color: var(--color-red-dark);
 }
 
-.watchlist-item-buttons .rating-btn {
+.watchlist-item-buttons .rating-btn,
+.rating-item-buttons .change-rating-btn {
   background-color: var(--color-primary);
 }
 
+.rating-item-buttons .change-rating-btn:active,
+.rating-item-buttons .change-rating-btn:hover,
 .watchlist-item-buttons .rating-btn:active,
 .watchlist-item-buttons .rating-btn:hover {
   background-color: var(--color-primary-dark);
