@@ -1,0 +1,34 @@
+const ratingsContainer = document.querySelector(".ratings-container");
+
+const renderRatingItem = function (data) {
+  const markup = `
+    <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-id="${
+      data.imdbID
+    }">
+            <img
+              src=${data.Poster}
+              class="h-100 rating-item-poster"
+              onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
+              alt=""
+            />
+            <div class="rating-item-content d-flex flex-column">
+              <h3 class="rating-item-name fs-4">${data.Title}</h3>
+              <p class="rating-item-release-date">${
+                data.Released ? data.Released.split(" ")[2] : "N/A"
+              }</p>
+              <p class="rating-user mb-0 mt-auto fw-bold">
+                User rating: <i class="fa-solid fa-star"></i> 10
+              </p>
+            </div>
+            <div class="rating-item-buttons d-flex flex-column ms-auto">
+              <button
+                class="change-rating-btn btn btn-primary btn-sm border-0 fw-bold"
+                data-bs-target="#ratingsModal"
+              >
+                Change Rating
+              </button>
+            </div>
+    </div>
+    `;
+  ratingsContainer.insertAdjacentHTML("afterbegin", markup);
+};
