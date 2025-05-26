@@ -1,6 +1,13 @@
 import { fetchMovieData } from "./fetchMovieData.js";
 import { watchlistContainer } from "./renderWatchlistItem.js";
 
+const watchlistToastEl = document.getElementById("watchlist-toast");
+const watchlistToast = new bootstrap.Toast(watchlistToastEl);
+const watchlistToastContent = watchlistToastEl.querySelector(".toast-content");
+const watchlistToastMessage = watchlistToastEl.querySelector(
+  ".watchlist-toast-message"
+);
+
 const handleAddToWatchlist = function () {
   document.body.addEventListener("click", (e) => {
     if (e.target.classList.contains("add-to-watchlist-btn")) {
@@ -16,12 +23,19 @@ const handleAddToWatchlist = function () {
         }
         // Check if the movie is already in watchlist
         if (item.dataset.movieId === movieId) {
-          console.log("Already in watchlist");
+          watchlistToastContent.style.backgroundColor = "var(--toast-bg-red)";
+          watchlistToastMessage.textContent = "Movie already in watchlist";
+          watchlistToast.show();
+
           return;
         }
       }
 
       fetchMovieData(movieId, actionType);
+
+      watchlistToastContent.style.backgroundColor = "var(--toast-bg-green)";
+      watchlistToastMessage.textContent = "Movie added to watchlist";
+      watchlistToast.show();
     }
   });
 };
