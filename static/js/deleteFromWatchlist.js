@@ -1,3 +1,5 @@
+import displayToast from "./displayToast.js";
+
 const watchlistContainer = document.querySelector(".watchlist-container");
 const watchlistPlaceholder = document.querySelector(
   ".watchlist-empty-paragraph"
@@ -32,6 +34,8 @@ const handleDelteFromWatchlist = function () {
       if ([...watchlistContainer.children].length === 1) {
         watchlistPlaceholder.classList.remove("d-none");
       }
+
+      displayToast("removed");
 
       deleteFromWatchlistDB(movieId);
     }

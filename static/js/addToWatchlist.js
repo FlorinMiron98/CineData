@@ -1,12 +1,6 @@
 import { fetchMovieData } from "./fetchMovieData.js";
 import { watchlistContainer } from "./renderWatchlistItem.js";
-
-const watchlistToastEl = document.getElementById("watchlist-toast");
-const watchlistToast = new bootstrap.Toast(watchlistToastEl);
-const watchlistToastContent = watchlistToastEl.querySelector(".toast-content");
-const watchlistToastMessage = watchlistToastEl.querySelector(
-  ".watchlist-toast-message"
-);
+import displayToast from "./displayToast.js";
 
 const addToWatchlistDB = async function (fetchedData) {
   const movieData = {
@@ -41,9 +35,7 @@ const handleAddToWatchlist = function () {
         }
         // Check if the movie is already in watchlist
         if (item.dataset.movieId === movieId) {
-          watchlistToastContent.style.backgroundColor = "var(--toast-bg-red)";
-          watchlistToastMessage.textContent = "Movie already in watchlist";
-          watchlistToast.show();
+          displayToast("added");
 
           return;
         }
@@ -51,9 +43,7 @@ const handleAddToWatchlist = function () {
 
       fetchMovieData(movieId, actionType);
 
-      watchlistToastContent.style.backgroundColor = "var(--toast-bg-green)";
-      watchlistToastMessage.textContent = "Movie added to watchlist";
-      watchlistToast.show();
+      displayToast("add");
     }
   });
 };
