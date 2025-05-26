@@ -4,7 +4,7 @@ const renderWatchlistItem = function (data) {
   const markup = `
         <div class="watchlist-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
           data.Title
-        }" data-movie-id="${data.imdbID}">
+        }" data-movie-id="${data.imdbID}" data-movie-poster="${data.Poster}">
             <img
               src=${data.Poster}
               onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"

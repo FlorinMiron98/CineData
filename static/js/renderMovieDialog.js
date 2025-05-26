@@ -75,7 +75,7 @@ const renderMovieDetails = function (data) {
           </p>
         </div>
       </div>
-      <div class="modal-footer justify-content-start" data-movie-title="${data.Title}" data-movie-id="${data.imdbID}">
+      <div class="modal-footer justify-content-start" data-movie-title="${data.Title}" data-movie-id="${data.imdbID}" data-movie-poster="${data.Poster}">
         <button type="button" class="add-to-watchlist-btn btn btn-primary fw-bold border-0" data-bs-toggle="toast" data-bs-target="#liveToast">
           Add to Watchlist
         </button>
