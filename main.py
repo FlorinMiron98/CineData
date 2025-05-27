@@ -50,7 +50,7 @@ class WatchlistItem(db.Model):
 
 class Rating(db.Model):
     movie_id: Mapped[str] = mapped_column(String, primary_key=True)
-    title: Mapped[str] = mapped_column(String)
+    title: Mapped[str] = mapped_column(String, nullable=False)
     release_date: Mapped[str] = mapped_column(String)
     user_rating: Mapped[int] = mapped_column(Integer, nullable=False)
     poster_url: Mapped[str] = mapped_column(String)
@@ -158,6 +158,18 @@ def add_to_rating():
     db.session.add(movie)
     db.session.commit()
     return jsonify({'message': 'Movie added to your ratings'})
+
+@app.route('/ratings')
+@login_required
+def ratings():
+    ratings = Rating.query.filter_by(user_id=current_user.id).all()
+    return jsonify([{
+        'Title': movie.title,
+        'Released': movie.release_date,
+        'Poster': movie.poster_url,
+        'imdbId': movie.movie_id,
+        'userRating': movie.user_rating
+    } for movie in ratings])
 
 @app.route('/logout')
 def logout():
