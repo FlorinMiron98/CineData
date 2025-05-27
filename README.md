@@ -7,15 +7,15 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Project Goals](#project-goals)
    - [User Stories](#user-stories)
    - Design Choices
-2. Features
-   - Register/Login Page
-   - Homepage
-     - Search Movies Tab
-     - Watchlist Tab
-     - Ratings Tab
-     - Search Results Section
-     - Movie Details Modal
-     - Add/Change Rating Modal
+2. [Features](https://github.com/FlorinMiron98/CineData/blob/main/README.md)
+   - [Register/Login Page](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#registerlogin-page)
+   - [Homepage](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#homepage)
+     - [Search Movies Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-movies-tab)
+     - [Watchlist Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#watchlist-tab)
+     - [Ratings Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#ratings-tab)
+     - [Search Results Section](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-results-section)
+     - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
+     - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
 3. Technologies Used
 4. Testing
 5. Deployment
