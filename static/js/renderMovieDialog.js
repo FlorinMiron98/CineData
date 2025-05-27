@@ -80,7 +80,7 @@ const renderMovieDetails = function (data) {
           Add to Watchlist
         </button>
         <button type="button" class="rating-btn btn btn-primary fw-bold border-0">
-          Add Rating
+          Rate
         </button>
       </div>
     `;

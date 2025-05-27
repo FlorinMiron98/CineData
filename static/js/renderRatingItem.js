@@ -5,12 +5,14 @@ const renderRatingItem = function (data, userRating) {
     <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
       data.Title
     }" data-movie-id="${data.imdbID}" data-movie-poster="${data.Poster}">
-            <img
-              src=${data.Poster}
-              class="h-100 rating-item-poster"
-              onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
-              alt=""
-            />
+            <div class="rating-item-poster">
+              <img
+                src=${data.Poster}
+                class="h-100 w-100 object-fit-cover"
+                onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
+                alt="${data.Title} Poster"
+              />
+            </div>
             <div class="rating-item-content d-flex flex-column">
               <h3 class="rating-item-name fs-4">${data.Title}</h3>
               <p class="rating-item-release-date">${

@@ -5,12 +5,14 @@ const renderWatchlistItem = function (data) {
         <div class="watchlist-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
           data.Title
         }" data-movie-id="${data.imdbID}" data-movie-poster="${data.Poster}">
-            <img
-              src=${data.Poster}
-              onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
-              class="h-100 watchlist-item-poster"
-              alt=""
-            />
+            <div class="watchlist-item-poster">
+              <img
+                src=${data.Poster}
+                onerror="this.onerror=null; this.src='/static/assets/images/movie-fallback.jpg';"
+                class="h-100 w-100 object-fit-cover"
+                alt="${data.Title} Poster"
+              />
+            </div>
             <div class="watchlist-item-content d-flex flex-column">
               <h3 class="watchlist-item-name fs-4">${data.Title}</h3>
               <p class="watchlist-item-release-date">${
@@ -29,7 +31,7 @@ const renderWatchlistItem = function (data) {
               <button
                 class="rating-btn btn btn-primary btn-sm border-0 fw-bold"
               >
-                Add rating
+                Rate
               </button>
             </div>
         </div>

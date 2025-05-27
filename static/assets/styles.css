@@ -281,7 +281,8 @@ h6 {
 
 .watchlist-item-poster,
 .rating-item-poster {
-  max-height: 8.25rem;
+  height: 9rem;
+  width: 6.25rem;
 }
 
 .watchlist-item-content,
@@ -503,6 +504,12 @@ main {
 }
 
 @media only screen and (max-width: 576px) {
+  .watchlist-item-poster,
+  .rating-item-poster {
+    height: 7.8rem;
+    width: 5rem;
+  }
+
   .watchlist-item-poster {
     max-height: 7.25rem;
   }
