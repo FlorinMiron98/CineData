@@ -143,6 +143,22 @@ def delete_from_watchlist(movie_id):
     db.session.commit()
     return jsonify({'message': 'Movie removed from watchlist'})
 
+@app.route('/add_to_rating', methods=['GET','POST'])
+@login_required
+def add_to_rating():
+    data = request.get_json()
+    movie = Rating(
+        user_id=current_user.id,
+        title=data['title'],
+        release_date=data['release_date'],
+        poster_url=data['poster_url'],
+        movie_id=data['movie_id'],
+        user_rating=data['user_rating']
+    )
+    db.session.add(movie)
+    db.session.commit()
+    return jsonify({'message': 'Movie added to your ratings'})
+
 @app.route('/logout')
 def logout():
     logout_user()
