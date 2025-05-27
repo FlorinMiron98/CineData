@@ -46,15 +46,16 @@ class WatchlistItem(db.Model):
     rating: Mapped[float] = mapped_column(Float)
     poster_url: Mapped[str] = mapped_column(String)
 
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'), nullable=False)
 
 class Rating(db.Model):
-    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    movie_id: Mapped[str] = mapped_column(String, primary_key=True)
     title: Mapped[str] = mapped_column(String)
-    rating: Mapped[int] = mapped_column(Integer, nullable=False)
-    movie_id: Mapped[str] = mapped_column(String)
+    release_date: Mapped[str] = mapped_column(String)
+    user_rating: Mapped[int] = mapped_column(Integer, nullable=False)
+    poster_url: Mapped[str] = mapped_column(String)
 
-    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'))
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'), nullable=False)
 
 with app.app_context():
     db.create_all()
