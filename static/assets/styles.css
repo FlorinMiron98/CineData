@@ -186,7 +186,7 @@ h6 {
 /* Search Route */
 /* ========================= */
 .search-container {
-  background-image: linear-gradient(var(--gradient-1, var(--gradient-1))),
+  background-image: linear-gradient(var(--gradient-1), var(--gradient-1)),
     url("./images/cine-data-main.jpg");
   background-position: center;
   background-size: cover;
