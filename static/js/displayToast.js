@@ -5,37 +5,45 @@ const watchlistToastMessage = watchlistToastEl.querySelector(
   ".watchlist-toast-message"
 );
 
-const displayToast = function (notification) {
+const displayToast = function (
+  notification,
+  errorMessage = "Something went wrong"
+) {
+  let bgColor = "";
+  let message = "";
+
   if (notification === "add") {
-    watchlistToastContent.style.backgroundColor = "var(--toast-bg-green)";
-    watchlistToastMessage.textContent = "Movie added to watchlist";
-    watchlistToast.show();
+    bgColor = "var(--toast-bg-green)";
+    message = "Movie added to watchlist";
   }
   if (notification === "added") {
-    watchlistToastContent.style.backgroundColor = "var(--toast-bg-red)";
-    watchlistToastMessage.textContent = "Movie already in watchlist";
-    watchlistToast.show();
+    bgColor = "var(--toast-bg-red)";
+    message = "Movie already in watchlist";
   }
   if (notification === "removed") {
-    watchlistToastContent.style.backgroundColor = "var(--toast-bg-red)";
-    watchlistToastMessage.textContent = "Movie deleted from watchlist";
-    watchlistToast.show();
+    bgColor = "var(--toast-bg-red)";
+    message = "Movie deleted from watchlist";
   }
   if (notification === "rate") {
-    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
-    watchlistToastMessage.textContent = "Movie added to ratings";
-    watchlistToast.show();
+    bgColor = "var(--color-primary)";
+    message = "Movie added to ratings";
   }
   if (notification === "rated") {
-    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
-    watchlistToastMessage.textContent = "Movie already rated";
-    watchlistToast.show();
+    bgColor = "var(--color-primary)";
+    message = "Movie already rated";
   }
   if (notification === "rate changed") {
-    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
-    watchlistToastMessage.textContent = "Movie rating has been changed";
-    watchlistToast.show();
+    bgColor = "var(--color-primary)";
+    message = "Movie rating has been changed";
   }
+  if (notification === "error") {
+    bgColor = "var(--toast-bg-red)";
+    message = errorMessage;
+  }
+
+  watchlistToastContent.style.backgroundColor = bgColor;
+  watchlistToastMessage.textContent = message;
+  watchlistToast.show();
 };
 
 export default displayToast;
