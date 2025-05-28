@@ -4,7 +4,7 @@ const renderRatingItem = function (data, userRating) {
   const markup = `
     <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-title="${
       data.Title
-    }" data-movie-id="${data.imdbId}" data-movie-poster="${data.Poster}">
+    }" data-movie-id="${data.imdbID}" data-movie-poster="${data.Poster}">
             <div class="rating-item-poster">
               <img
                 src=${data.Poster}
