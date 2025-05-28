@@ -28,6 +28,23 @@ const addToRatingDB = async function (fetchedData, userRating) {
   }
 };
 
+const changeRatingDB = async function (movieTitle, newRating) {
+  try {
+    const response = await fetch("/update_rating", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: movieTitle,
+        rating: parseInt(newRating),
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const handleAddToRating = function () {
   // Use an anonymous function instead of arrow function to avoid losing the value of the 'this' keyword
   submitRatingBtn.addEventListener("click", function () {
@@ -71,7 +88,14 @@ const handleAddToRating = function () {
       for (const item of addedRatings) {
         if (item.dataset.movieId === movieId) {
           const ratingUserValue = item.querySelector(".rating-user-value");
+          const movieTitle =
+            item.querySelector(".rating-item-name").textContent;
+          console.log(movieTitle);
+
           ratingUserValue.textContent = selectedRating;
+          console.log(selectedRating);
+
+          changeRatingDB(movieTitle, selectedRating);
 
           displayToast("rate changed");
         }
