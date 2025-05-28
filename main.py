@@ -167,9 +167,25 @@ def ratings():
         'Title': movie.title,
         'Released': movie.release_date,
         'Poster': movie.poster_url,
-        'imdbId': movie.movie_id,
+        'imdbID': movie.movie_id,
         'userRating': movie.user_rating
     } for movie in ratings])
+
+@app.route('/update_rating', methods=['PUT'])
+@login_required
+def update_rating():
+    data = request.get_json()
+    title = data['title']
+    new_rating = data['rating']
+
+    rating = Rating.query.filter_by(user_id=current_user.id, title=title).first()
+
+    if not rating:
+        return jsonify({'message': 'Rating not found'})
+
+    rating.user_rating = new_rating
+    db.session.commit()
+    return jsonify({'message': 'Rating updated successfully'})
 
 @app.route('/logout')
 def logout():
