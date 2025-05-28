@@ -1,6 +1,7 @@
 import { fetchMovieData } from "./fetchMovieData.js";
 import { ratingsContainer } from "./renderRatingItem.js";
 import { ratingStarsDialog } from "./displayRatingDialog.js";
+import { selectedRating } from "./displayRatingDialog.js";
 import displayToast from "./displayToast.js";
 
 const submitRatingBtn = document.querySelector(".submit-rating-btn");
@@ -32,30 +33,52 @@ const handleAddToRating = function () {
   submitRatingBtn.addEventListener("click", function () {
     const movieEl = this.closest("[data-movie-id]");
     const movieId = movieEl.dataset.movieId;
-    const actionType = "add to rating";
-
     const addedRatings = ratingsContainer.children;
-    for (const item of addedRatings) {
-      // Hide the placeholder paragraph
-      if (item.classList.contains("ratings-empty-paragraph")) {
-        item.classList.add("d-none");
+
+    const rateType = ratingStarsDialog.dataset.rateType;
+
+    let actionType;
+
+    if (rateType === "rate") {
+      actionType = "add to rating";
+
+      for (const item of addedRatings) {
+        // Hide the placeholder paragraph
+        if (item.classList.contains("ratings-empty-paragraph")) {
+          item.classList.add("d-none");
+        }
+
+        // Check if movie is already in ratings
+        if (item.dataset.movieId === movieId) {
+          displayToast("rated");
+
+          ratingStarsDialog.close();
+
+          return;
+        }
       }
 
-      // Check if movie is already in ratings
-      if (item.dataset.movieId === movieId) {
-        displayToast("rated");
+      fetchMovieData(movieId, actionType);
 
-        ratingStarsDialog.close();
+      ratingStarsDialog.close();
 
-        return;
-      }
+      displayToast("rate");
     }
 
-    fetchMovieData(movieId, actionType);
+    if (rateType === "change") {
+      actionType = "change rating";
 
-    ratingStarsDialog.close();
+      for (const item of addedRatings) {
+        if (item.dataset.movieId === movieId) {
+          const ratingUserValue = item.querySelector(".rating-user-value");
+          ratingUserValue.textContent = selectedRating;
 
-    displayToast("rate");
+          displayToast("rate changed");
+        }
+      }
+
+      ratingStarsDialog.close();
+    }
   });
 };
 
