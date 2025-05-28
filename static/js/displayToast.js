@@ -31,6 +31,11 @@ const displayToast = function (notification) {
     watchlistToastMessage.textContent = "Movie already rated";
     watchlistToast.show();
   }
+  if (notification === "rate changed") {
+    watchlistToastContent.style.backgroundColor = "var(--color-primary)";
+    watchlistToastMessage.textContent = "Movie rating has been changed";
+    watchlistToast.show();
+  }
 };
 
 export default displayToast;
