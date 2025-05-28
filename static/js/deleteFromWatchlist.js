@@ -14,7 +14,9 @@ const deleteFromWatchlistDB = async function (movieId) {
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    console.log(error);
+    const message =
+      "Something went wrong while trying to remove movie from watchlist";
+    displayToast("error", message);
   }
 };
 

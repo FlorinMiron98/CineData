@@ -5,6 +5,7 @@ import { addToWatchlistDB } from "./addToWatchlist.js";
 import { selectedRating } from "./displayRatingDialog.js";
 import { renderRatingItem } from "./renderRatingItem.js";
 import { addToRatingDB } from "./addToRating.js";
+import displayToast from "./displayToast.js";
 
 // The actionType parameter checks if the fetched data is for displaying the dialog, adding a movie to watchlist or rating a movie
 const fetchMovieData = async function (movieId, actionType) {
@@ -31,7 +32,8 @@ const fetchMovieData = async function (movieId, actionType) {
       addToRatingDB(data, selectedRating);
     }
   } catch (error) {
-    console.log(error);
+    const message = "Something went wrong when fetching data";
+    displayToast("error", message);
   }
 };
 

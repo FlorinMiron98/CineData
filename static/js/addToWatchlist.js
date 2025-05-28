@@ -11,13 +11,19 @@ const addToWatchlistDB = async function (fetchedData) {
     movie_id: fetchedData.imdbID,
   };
 
-  const response = await fetch("/add_to_watchlist", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(movieData),
-  });
-  const data = await response.json();
-  console.log(data);
+  try {
+    const response = await fetch("/add_to_watchlist", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(movieData),
+    });
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    const message =
+      "Something went wrong while trying to add movie to watchlist";
+    displayToast("error", message);
+  }
 };
 
 const handleAddToWatchlist = function () {

@@ -1,5 +1,6 @@
 import { renderWatchlistItem } from "./renderWatchlistItem.js";
 import { renderRatingItem } from "./renderRatingItem.js";
+import displayToast from "./displayToast.js";
 
 const watchlistPlaceholder = document.querySelector(
   ".watchlist-empty-paragraph"
@@ -18,7 +19,9 @@ const fetchWatchlistMovies = async function () {
       }
     }
   } catch (error) {
-    console.log(error);
+    const message =
+      "Something went wrong while trying to fetch your saved movies";
+    displayToast("error", message);
   }
 };
 
@@ -36,7 +39,8 @@ const fetchRatedMovies = async function () {
       }
     }
   } catch (error) {
-    console.log(error);
+    const message = "Something went wrong while trying to fetch your ratings";
+    displayToast("error", message);
   }
 };
 
