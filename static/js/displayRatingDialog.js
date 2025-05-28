@@ -57,12 +57,21 @@ const handleSelectHighlightStar = function () {
 
 const handleDisplayRatingDialog = function () {
   document.body.addEventListener("click", (e) => {
-    if (e.target.classList.contains("rating-btn")) {
-      const ratingBtn = e.target;
-      const movieEl = ratingBtn.closest("[data-movie-id]");
+    if (
+      e.target.classList.contains("rating-btn") ||
+      e.target.classList.contains("change-rating-btn")
+    ) {
+      const movieEl = e.target.closest("[data-movie-id]");
       const movieId = movieEl.dataset.movieId;
       const movieTitle = movieEl.dataset.movieTitle;
       const moviePoster = movieEl.dataset.moviePoster;
+
+      if (e.target.classList.contains("rating-btn")) {
+        ratingStarsDialog.setAttribute("data-rate-type", "rate");
+      }
+      if (e.target.classList.contains("change-rating-btn")) {
+        ratingStarsDialog.setAttribute("data-rate-type", "change");
+      }
 
       ratingStarsDialog.setAttribute("data-movie-id", movieId);
       ratingStarsDialog.setAttribute("data-movie-title", movieTitle);
