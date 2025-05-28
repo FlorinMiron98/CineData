@@ -7,15 +7,15 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Project Goals](#project-goals)
    - [User Stories](#user-stories)
    - Design Choices
-2. Features
-   - Register/Login Page
-   - Homepage
-     - Search Movies Tab
-     - Watchlist Tab
-     - Ratings Tab
-     - Search Results Section
-     - Movie Details Modal
-     - Add/Change Rating Modal
+2. [Features](https://github.com/FlorinMiron98/CineData/blob/main/README.md)
+   - [Register/Login Page](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#registerlogin-page)
+   - [Homepage](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#homepage)
+     - [Search Movies Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-movies-tab)
+     - [Watchlist Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#watchlist-tab)
+     - [Ratings Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#ratings-tab)
+     - [Search Results Section](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-results-section)
+     - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
+     - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
 3. Technologies Used
 4. Testing
 5. Deployment
@@ -39,3 +39,9 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 5. As a user, I want to click on a movie from the search results to view detailed information, so that I can learn more about the movie’s plot, director, cast, and ratings.
 6. As a user, I want to access the website on any device (desktop, tablet, or mobile), so that I can enjoy the same seamless experience regardless of my device.
 7. As a user, I want to trust that my personal data and login information are secure, so that I can feel safe while using the website and managing my movie preferences.
+
+## Technologies Used
+1. **HTML5** - The foundational markup language for structuring web content.
+2. **CSS3** - Used for styling and layout, enhancing the visual appearance of the project.
+3. **Bootstrap5** - Used for creating responsiveness across all screen sizes, pre-designed components and utility classes. More about Bootstrap on the [official Bootstrap website](https://getbootstrap.com/)
+4. **JavaScript** - It is used to handle user interactions, manipulate the DOM, and manage application logic.
