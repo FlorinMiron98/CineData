@@ -19,7 +19,7 @@ const renderRatingItem = function (data, userRating) {
                 data.Released ? data.Released.split(" ")[2] : "N/A"
               }</p>
               <p class="rating-user mb-0 mt-auto fw-bold">
-                User rating: <i class="fa-solid fa-star"></i> ${userRating}
+                User rating: <i class="fa-solid fa-star"></i> <span class="rating-user-value">${userRating}</span>
               </p>
             </div>
             <div class="rating-item-buttons d-flex flex-column ms-auto">
