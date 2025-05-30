@@ -19,7 +19,6 @@ const fetchMovieData = async function (movieId, actionType) {
       `http://www.omdbapi.com/?apikey=${API_KEY}&i=${movieId}`
     );
     const data = await response.json();
-    console.log(data);
 
     // Display dialog
     if (actionType === "display dialog") {
