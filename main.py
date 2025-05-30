@@ -8,15 +8,20 @@ from flask_bootstrap import Bootstrap5
 import secrets
 import os
 
+# Generate a cryptographically secure, URL-safe secret key (used for session signing, CSRF protection, etc.)
 secret_key = secrets.token_urlsafe(32)
 
+# Initialize the Flask application and set the secret key
 app = Flask(__name__, instance_relative_config=True)
 app.config['SECRET_KEY'] = secret_key
+
+# Initialize Bootstrap 5 integration for the Flask app
 bootstrap = Bootstrap5(app)
 
 class Base(DeclarativeBase):
     pass
 
+# Configure the SQLite database and initialize SQLAlchemy with the Flask application
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///' + os.path.join(app.instance_path, 'cinedata.db')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
@@ -39,6 +44,7 @@ class User(UserMixin, db.Model):
     watchlist: Mapped[list['WatchlistItem']] = relationship('WatchlistItem', backref='user', cascade='all, delete-orphan')
     ratings: Mapped[list['Rating']] = relationship('Rating', backref='user', cascade='all, delete-orphan')
 
+# Create the Watchlist Table in Database
 class WatchlistItem(db.Model):
     movie_id: Mapped[str] = mapped_column(String, primary_key=True)
     title: Mapped[str] = mapped_column(String, nullable=False)
@@ -48,6 +54,7 @@ class WatchlistItem(db.Model):
 
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'), nullable=False)
 
+# Create the Ratings Table in Database
 class Rating(db.Model):
     movie_id: Mapped[str] = mapped_column(String, primary_key=True)
     title: Mapped[str] = mapped_column(String, nullable=False)
@@ -57,11 +64,17 @@ class Rating(db.Model):
 
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey('user.id'), nullable=False)
 
+# Create the database
 with app.app_context():
     db.create_all()
 
+# Home Route
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    """
+    Handle both user login and registration on the home page.
+    Supports POST requests with two form types: 'login' and 'register'.
+    """
     if request.method == 'POST':
         form_type = request.form.get('form-type')
 
@@ -98,15 +111,24 @@ def home():
 
     return render_template('index.html')
 
+# Search Page Route
 @app.route('/search')
 @login_required
 def search():
+    """
+    Render the search page, passing the current user's username to the template.
+    """
     return render_template('search.html', user=current_user.username)
 
 # Create the table for a single movie in the database
 @app.route('/add_to_watchlist', methods=['GET','POST'])
 @login_required
 def add_to_watchlist():
+    """
+    Add a movie to the current user's watchlist.
+    Creates a new WatchlistItem associated with the logged-in user,
+    saves it to the database, and returns a JSON confirmation message.
+    """
     data = request.get_json()
     movie = WatchlistItem(
         user_id=current_user.id,
@@ -123,6 +145,11 @@ def add_to_watchlist():
 @app.route('/watchlist')
 @login_required
 def watchlist():
+    """
+    Retrieve the current user's watchlist as a JSON response.
+    Queries the database for all WatchlistItem entries associated with the logged-in user,
+    and returns a list of movies with their title, release date, rating, poster URL, and movie ID.
+    """
     watchlist = WatchlistItem.query.filter_by(user_id=current_user.id).all()
     return jsonify([{
         'Title': movie.title,
@@ -135,6 +162,12 @@ def watchlist():
 @app.route('/delete_from_watchlist/<string:movie_id>', methods=['DELETE'])
 @login_required
 def delete_from_watchlist(movie_id):
+    """
+    Delete a movie from the current user's watchlist by movie ID.
+    Retrieves the WatchlistItem by ID, returns 404 if not found.
+    Checks if the movie belongs to the logged-in user to prevent unauthorized deletions.
+    If authorized, deletes the movie from the database and commits the change.
+    """
     movie = WatchlistItem.query.get_or_404(movie_id)
     if movie.user_id != current_user.id:
         return jsonify({'error': 'Unauthorized'}), 403
@@ -146,6 +179,11 @@ def delete_from_watchlist(movie_id):
 @app.route('/add_to_rating', methods=['GET','POST'])
 @login_required
 def add_to_rating():
+    """
+    Add a user rating for a movie.
+    Creates a new Rating entry linked to the current user,
+    saves it to the database, and returns a confirmation message as JSON.
+    """
     data = request.get_json()
     movie = Rating(
         user_id=current_user.id,
@@ -162,6 +200,11 @@ def add_to_rating():
 @app.route('/ratings')
 @login_required
 def ratings():
+    """
+    Retrieve all movies rated by the current user.
+    Queries the database for all Rating entries associated with the logged-in user.
+    Returns a list of rated movies in JSON format
+    """
     ratings = Rating.query.filter_by(user_id=current_user.id).all()
     return jsonify([{
         'Title': movie.title,
@@ -174,6 +217,12 @@ def ratings():
 @app.route('/update_rating', methods=['PUT'])
 @login_required
 def update_rating():
+    """
+    Update the user's rating for a specific movie.
+    Looks up the movie rating for the current user by title.
+    If found, updates the user's rating and commits the change to the database.
+    If not found, returns a message indicating that the rating doesn't exist.
+    """
     data = request.get_json()
     title = data['title']
     new_rating = data['rating']
@@ -189,6 +238,10 @@ def update_rating():
 
 @app.route('/logout')
 def logout():
+    """
+    Log out the current user and redirect to the home page.
+    Calls Flask-Login's logout_user() to end the user session.
+    """
     logout_user()
     return redirect(url_for('home'))
 
