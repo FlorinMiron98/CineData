@@ -35,8 +35,6 @@ const fetchRatedMovies = async function () {
     if (data.length > 0) {
       ratingsPlaceholder.classList.add("d-none");
       for (const movieItem of data) {
-        console.log(movieItem);
-
         renderRatingItem(movieItem, movieItem.userRating);
       }
     }

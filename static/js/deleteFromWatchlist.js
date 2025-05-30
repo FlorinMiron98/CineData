@@ -13,7 +13,6 @@ const deleteFromWatchlistDB = async function (movieId) {
       credentials: "include",
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     const message =
       "Something went wrong while trying to remove movie from watchlist";
@@ -21,6 +20,7 @@ const deleteFromWatchlistDB = async function (movieId) {
   }
 };
 
+//
 const handleDeleteFromWatchlist = function () {
   watchlistContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-btn")) {

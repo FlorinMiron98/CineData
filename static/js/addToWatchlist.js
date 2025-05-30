@@ -19,7 +19,6 @@ const addToWatchlistDB = async function (fetchedData) {
       body: JSON.stringify(movieData),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     const message =
       "Something went wrong while trying to add movie to watchlist";

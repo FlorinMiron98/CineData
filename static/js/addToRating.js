@@ -23,7 +23,6 @@ const addToRatingDB = async function (fetchedData, userRating) {
       body: JSON.stringify(movieData),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     const message =
       "Something went wrong while trying to rate movie. Please try again";
@@ -43,7 +42,6 @@ const changeRatingDB = async function (movieTitle, newRating) {
       }),
     });
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     const message = "Something went wrong while trying to change movie rating";
     displayToast("error", message);
@@ -101,10 +99,8 @@ const handleAddToRating = function () {
           const ratingUserValue = item.querySelector(".rating-user-value");
           const movieTitle =
             item.querySelector(".rating-item-name").textContent;
-          console.log(movieTitle);
 
           ratingUserValue.textContent = selectedRating;
-          console.log(selectedRating);
 
           // Change the rating in the database
           changeRatingDB(movieTitle, selectedRating);
