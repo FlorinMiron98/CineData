@@ -5,6 +5,7 @@ const watchlistPlaceholder = document.querySelector(
   ".watchlist-empty-paragraph"
 );
 
+// Create the functionality for deleting a movie from the database watchlist
 const deleteFromWatchlistDB = async function (movieId) {
   try {
     const response = await fetch(`/delete_from_watchlist/${movieId}`, {

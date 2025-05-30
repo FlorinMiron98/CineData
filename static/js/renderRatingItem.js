@@ -1,5 +1,7 @@
 const ratingsContainer = document.querySelector(".ratings-container");
 
+// Create the markup for rendering the rating movie item
+// The rating value is stored by the 'userRating' parameter
 const renderRatingItem = function (data, userRating) {
   const markup = `
     <div class="rating-item d-flex p-1 p-sm-3 rounded" data-movie-title="${

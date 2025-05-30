@@ -1,5 +1,6 @@
 const watchlistContainer = document.querySelector(".watchlist-container");
 
+// Create the functionality for rendering the watchlist movie item
 const renderWatchlistItem = function (data) {
   const markup = `
         <div class="watchlist-item d-flex p-1 p-sm-3 rounded" data-movie-title="${

@@ -6,6 +6,7 @@ import displayToast from "./displayToast.js";
 
 const submitRatingBtn = document.querySelector(".submit-rating-btn");
 
+// Create the data for a movie rating and send it to the database
 const addToRatingDB = async function (fetchedData, userRating) {
   const movieData = {
     title: fetchedData.Title,
@@ -30,6 +31,7 @@ const addToRatingDB = async function (fetchedData, userRating) {
   }
 };
 
+// Use a PUT request to modify the rating value in the database
 const changeRatingDB = async function (movieTitle, newRating) {
   try {
     const response = await fetch("/update_rating", {
@@ -48,6 +50,7 @@ const changeRatingDB = async function (movieTitle, newRating) {
   }
 };
 
+// Create the functionality for handling the click event on the submit button from the rating stars dialog
 const handleAddToRating = function () {
   // Use an anonymous function instead of arrow function to avoid losing the value of the 'this' keyword
   submitRatingBtn.addEventListener("click", function () {
@@ -57,8 +60,10 @@ const handleAddToRating = function () {
 
     const rateType = ratingStarsDialog.dataset.rateType;
 
+    // Initiate the action type variable (add initial rating or change the rating)
     let actionType;
 
+    // Action type is rating a movie
     if (rateType === "rate") {
       actionType = "add to rating";
 
@@ -68,26 +73,29 @@ const handleAddToRating = function () {
           item.classList.add("d-none");
         }
 
-        // Check if movie is already in ratings
+        // Check if movie is already in ratings adn return immediately if that's the case
         if (item.dataset.movieId === movieId) {
           displayToast("rated");
 
+          // Close the ratings dialog
           ratingStarsDialog.close();
 
           return;
         }
       }
 
+      // Pass the action type as an argument
       fetchMovieData(movieId, actionType);
 
+      // Close the ratings dialog
       ratingStarsDialog.close();
 
+      // Display a notification for the user
       displayToast("rate");
     }
 
+    // Action type is change the rating for a movie
     if (rateType === "change") {
-      actionType = "change rating";
-
       for (const item of addedRatings) {
         if (item.dataset.movieId === movieId) {
           const ratingUserValue = item.querySelector(".rating-user-value");
@@ -98,13 +106,16 @@ const handleAddToRating = function () {
           ratingUserValue.textContent = selectedRating;
           console.log(selectedRating);
 
+          // Change the rating in the database
           changeRatingDB(movieTitle, selectedRating);
 
+          // Close the ratings dialog
+          ratingStarsDialog.close();
+
+          // Display a notification for the user
           displayToast("rate changed");
         }
       }
-
-      ratingStarsDialog.close();
     }
   });
 };

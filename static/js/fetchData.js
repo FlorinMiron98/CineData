@@ -16,6 +16,7 @@ const searchMovieInput = document.getElementById("movie-name");
 const searchMovieForm = document.getElementById("search-movie-form");
 const searchError = document.querySelector(".search-error");
 
+// This function will fetch the movies based on the user's input value
 const fetchData = async function (apiKey, inputValue) {
   try {
     renderSpinner();
@@ -43,9 +44,11 @@ const fetchData = async function (apiKey, inputValue) {
   }
 };
 
+// Handle the submit event on the movie search
 searchMovieForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
+  // Handle the UI in case there is no search result
   if (!searchError.classList.contains("d-none")) {
     searchError.classList.add("d-none");
   }

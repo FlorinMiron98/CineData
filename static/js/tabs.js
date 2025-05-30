@@ -1,6 +1,7 @@
 const tabButtons = document.querySelectorAll(".tab-button");
 const tabContents = document.querySelectorAll(".tab-content");
 
+// Create the functionality for handling the display of the tabs
 const handleTabClick = function () {
   tabButtons.forEach((tabButton) => {
     tabButton.addEventListener("click", () => {

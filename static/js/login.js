@@ -7,6 +7,7 @@ const watchlistPlaceholder = document.querySelector(
 );
 const ratingsPlaceholder = document.querySelector(".ratings-empty-paragraph");
 
+// Fetch the watchlist movies from the database
 const fetchWatchlistMovies = async function () {
   try {
     const response = await fetch("/watchlist");
@@ -25,6 +26,7 @@ const fetchWatchlistMovies = async function () {
   }
 };
 
+// Fetch the rated movies from the database
 const fetchRatedMovies = async function () {
   try {
     const response = await fetch("/ratings");
@@ -44,6 +46,7 @@ const fetchRatedMovies = async function () {
   }
 };
 
+// Fetch the watchlist movies and rated movies once the pages has loaded
 const handleLoadStoredMovies = function () {
   document.addEventListener("DOMContentLoaded", () => {
     fetchWatchlistMovies();

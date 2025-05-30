@@ -4,14 +4,17 @@ const main = document.querySelector("main");
 const searchResultsContainer = document.querySelector(".search-results");
 const loader = document.querySelector(".loader");
 
+// Display the loading spinner from movie search
 const renderSpinner = function () {
   loader.classList.remove("d-none");
 };
 
+// Hide the loading spinner from movie search
 const hideSpinner = function () {
   loader.classList.add("d-none");
 };
 
+// Create the markup for each search result
 const displaySearchResults = function (movies) {
   searchResultsContainer.innerHTML = "";
 
@@ -39,9 +42,11 @@ const displaySearchResults = function (movies) {
     })
     .join("");
 
+  // Insert the search results to the container
   searchResultsContainer.insertAdjacentHTML("afterbegin", markup);
 };
 
+// Create the functionality for displaying the movie details dialog based on the movie id
 searchResultsContainer.addEventListener("click", (e) => {
   if (e.target.closest(".movie-info-btn")) {
     const actionType = "display dialog";

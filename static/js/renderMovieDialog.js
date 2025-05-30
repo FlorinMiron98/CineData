@@ -1,5 +1,6 @@
 const movieModalContent = document.querySelector(".modal-content");
 
+// Render the loading spinner for the movie details dialog
 const renderSpinner = function () {
   movieModalContent.innerHTML = "";
 
@@ -11,6 +12,7 @@ const renderSpinner = function () {
   movieModalContent.insertAdjacentHTML("afterbegin", markup);
 };
 
+// Create the markup for the movie details dialog
 const renderMovieDetails = function (data) {
   movieModalContent.innerHTML = "";
 

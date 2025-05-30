@@ -4,8 +4,10 @@ const ratingStarsTitle = document.querySelector(".rating-stars-title");
 const userRatingValue = document.querySelector(".user-rating-value");
 const closeDialogBtn = document.querySelector(".close-dialog-btn");
 
+// Number of stars to be created
 const totalStars = 10;
 
+// Default selected rating value
 let selectedRating = 1;
 
 // Helper function for highlighting stars
@@ -20,7 +22,7 @@ const highlightStars = function (stars, rating, className) {
   });
 };
 
-// Create the rating stars
+// Dyncamically create the rating stars
 for (let i = 1; i <= totalStars; i++) {
   const star = document.createElement("i");
   star.classList.add("fa-solid");
@@ -34,6 +36,7 @@ for (let i = 1; i <= totalStars; i++) {
   ratingStarsContainer.appendChild(star);
 }
 
+// Dynamically highlight the stars based on user's mouse events
 const handleSelectHighlightStar = function () {
   const ratingStars = ratingStarsContainer.querySelectorAll(".fa-star");
 
@@ -55,8 +58,10 @@ const handleSelectHighlightStar = function () {
   });
 };
 
+// Create the functionality for displaying the rating dialog
 const handleDisplayRatingDialog = function () {
   document.body.addEventListener("click", (e) => {
+    // Based on the button pressed by the user(rating button or chage rating button), set the attributes necessary for the submit button to perform the submitting of the rating (either initial rating or changing the rating)
     if (
       e.target.classList.contains("rating-btn") ||
       e.target.classList.contains("change-rating-btn")
@@ -79,6 +84,7 @@ const handleDisplayRatingDialog = function () {
 
       ratingStarsTitle.textContent = movieTitle;
 
+      // Display the rating stars dialog
       ratingStarsDialog.showModal();
     }
   });
