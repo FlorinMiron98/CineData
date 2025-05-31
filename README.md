@@ -17,10 +17,14 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
      - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
      - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
 3. [Technologies Used](#technologies-used)
-4. [Data Schema]
-5. Testing
-6. Deployment
-7. [Credits](#credits)
+4. [Data Schema](#https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md)
+   - [User](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#user)
+   - [Watchlist Item](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#watchlist-item)
+   - [Rating](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#rating)
+   - [Relationships](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#relationships)
+6. Testing
+7. Deployment
+8. [Credits](#credits)
    - [Content](#content)
    - [Media](#media)
    - [Code](#code)
