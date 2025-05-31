@@ -17,9 +17,10 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
      - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
      - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
 3. [Technologies Used](#technologies-used)
-4. Testing
-5. Deployment
-6. [Credits](#credits)
+4. [Data Schema]
+5. Testing
+6. Deployment
+7. [Credits](#credits)
    - [Content](#content)
    - [Media](#media)
    - [Code](#code)
