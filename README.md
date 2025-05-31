@@ -17,9 +17,18 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
      - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
      - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
 3. [Technologies Used](#technologies-used)
-4. Testing
-5. Deployment
-6. Credits
+4. [Data Schema](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md)
+   - [User](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#user)
+   - [Watchlist Item](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#watchlist-item)
+   - [Rating](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#rating)
+   - [Relationships](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#relationships)
+6. Testing
+7. Deployment
+8. [Credits](#credits)
+   - [Content](#content)
+   - [Media](#media)
+   - [Code](#code)
+   - [Inspirations](#inspirations)
 
 ## UX
 ### Project Goals
@@ -55,3 +64,26 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 12. **os** - Provides access to environment variables and file paths, often used for configuration and security.
 13. **secrets** - Used to generate secure random values, such as secret keys for session management.
 14. **OMDb API** - A free RESTful web service used to fetch movie data such as titles, ratings, posters, and descriptions. More about this API on the [official documentation](https://www.omdbapi.com/)
+
+## Credits
+### Content
+- [ChatGPT](https://chatgpt.com/) - Used to create content for:
+  - `<meta>` keywords attribute
+  - `<meta>` description attribute
+### Media
+- favicon: [Image Source](https://www.flaticon.com/free-icon/cinema-projector_1175511?term=cinema&page=1&position=58&origin=search&related_id=1175511)
+- cine-data-login.jpg: [Image Source](https://unsplash.com/photos/the-walking-dead-dvd-movie-wMkaMXTJjlQ) - Photo by [Samuel Regan-Asante](https://unsplash.com/@reganography)
+- cine-data-main.jpg: [Image Source](https://unsplash.com/photos/a-close-up-of-a-hand-with-a-light-on-it-rkaahInFlBg) - Photo by [Igor Bumba](https://unsplash.com/@igorbumba)
+- movie.fallback.jpg: [Image Source](https://unsplash.com/photos/black-and-white-wall-mounted-calendar-k1V4pRaLjAU) - Photo by [Irham Setyaki](https://unsplash.com/@setyaki)
+### Code
+1. Code for all website's icons was created using [Font Awesome](https://fontawesome.com/start).
+2. Code for importing Google Fonts inside the `static/assets/styles.css` file was created using [Google Fonts](https://fonts.google.com/).
+3. Code for template inheritance was created using Jinja2 Template Inheritance System.
+4. Code for register/login form was created using [Bootstrap Forms](https://getbootstrap.com/docs/5.3/forms/overview/#overview) and slightly modified to fit the project's needs.
+5. Code for register/login tabs was created using [Bootstrap Tabs](https://getbootstrap.com/docs/5.3/components/navs-tabs/#tabs) and slightly modified to fit the project's needs.
+6. Code for register/login form validation messages was created using [Flask Flashing Messages](https://flask.palletsprojects.com/en/stable/patterns/flashing/) and [Jinja2 Conditional Statements](https://jinja.palletsprojects.com/en/stable/templates/)
+7. Code for displaying the movie details modal was created using [Bootstrap Modals](https://getbootstrap.com/docs/5.3/components/modal/#how-it-works) and slightly modified to fit the project's needs.
+8. Code for interactions feedback was created using [Bootstrap Toasts](https://getbootstrap.com/docs/5.3/components/toasts/#overview) and slightly modified to fit the project's needs.
+9. Code for adding the correct CSS prefixes to ensure the cross-browser compatibility was created using [Autoprefixer CSS online](https://autoprefixer.github.io/).
+### Inspirations
+- [IMDb](https://www.imdb.com/) - For the colors.
