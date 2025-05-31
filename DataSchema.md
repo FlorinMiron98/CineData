@@ -1,6 +1,6 @@
 # Data Schema
 
-# [Main README.md File](https://github.com/FlorinMiron98/CineData/blob/main/README.md)
+## [Main README.md File](https://github.com/FlorinMiron98/CineData/blob/main/README.md)
 
 ## Table of Contents
 1. [User](#user)
