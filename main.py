@@ -5,15 +5,13 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, Float, ForeignKey
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from flask_bootstrap import Bootstrap5
+from settings import Config
 import secrets
 import os
 
-# Generate a cryptographically secure, URL-safe secret key (used for session signing, CSRF protection, etc.)
-secret_key = secrets.token_urlsafe(32)
-
 # Initialize the Flask application and set the secret key
 app = Flask(__name__, instance_relative_config=True)
-app.config['SECRET_KEY'] = secret_key
+app.config.from_object(Config)
 
 # Initialize Bootstrap 5 integration for the Flask app
 bootstrap = Bootstrap5(app)
