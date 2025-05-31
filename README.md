@@ -16,7 +16,7 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
      - [Search Results Section](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-results-section)
      - [Movie Details Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#movie-details-modal)
      - [Add/Change Rating Modal](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#addchange-rating-modal)
-3. Technologies Used
+3. [Technologies Used](#technologies-used)
 4. Testing
 5. Deployment
 6. Credits
@@ -45,3 +45,13 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 2. **CSS3** - Used for styling and layout, enhancing the visual appearance of the project.
 3. **Bootstrap5** - Used for creating responsiveness across all screen sizes, pre-designed components and utility classes. More about Bootstrap on the [official Bootstrap website](https://getbootstrap.com/)
 4. **JavaScript** - It is used to handle user interactions, manipulate the DOM, and manage application logic.
+5. **Python3** - Used for the backend part of the application. More about Python3 on the [official website](https://www.python.org/)
+6. **Jinja2** - A templating engine used with Flask to generate dynamic HTML pages from Python data. More about Jinja2 on the [official website](https://jinja.palletsprojects.com/en/stable/)
+7. **Flask** - The core web framework used to build the application, handle routing, templates, and form submissions. More about Flask on the [official website](https://flask.palletsprojects.com/en/stable/)
+8. **Werkzeug Security** - Used to securely hash and verify passwords. More about Werkzeug on the [official website](https://werkzeug.palletsprojects.com/en/stable/)
+9. **Flask-Login** - Provides user authentication, login/logout management, and session tracking. More about Flask-Login on the [official website](https://flask-login.readthedocs.io/en/latest/)
+10. **SQLAlchemy** - A Python ORM used to define models and interact with relational databases using Python code. More about SQLAlchemy on the [official website](https://www.sqlalchemy.org/)
+11. **SQLite3** - Lightweight, file-based relational database used to store application data locally (accessed via SQLAlchemy in this project).
+12. **os** - Provides access to environment variables and file paths, often used for configuration and security.
+13. **secrets** - Used to generate secure random values, such as secret keys for session management.
+14. **OMDb API** - A free RESTful web service used to fetch movie data such as titles, ratings, posters, and descriptions. More about this API on the [official documentation](https://www.omdbapi.com/)
