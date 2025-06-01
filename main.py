@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, Float, ForeignKey
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from flask_bootstrap import Bootstrap5
 from settings import Config
 import secrets
 import os
@@ -12,9 +11,6 @@ import os
 # Initialize the Flask application and set the secret key
 app = Flask(__name__, instance_relative_config=True)
 app.config.from_object(Config)
-
-# Initialize Bootstrap 5 integration for the Flask app
-bootstrap = Bootstrap5(app)
 
 class Base(DeclarativeBase):
     pass
@@ -242,3 +238,6 @@ def logout():
     """
     logout_user()
     return redirect(url_for('home'))
+
+if __name__ == '__main__':
+    app.run(debug=True)

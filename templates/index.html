@@ -151,8 +151,12 @@
   </div>
 </div>
 {% block scripts %}
-<!-- Bootstrap-Flask script -->
-{{ bootstrap.load_js() }}
+<!-- Bootstrap script -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+  crossorigin="anonymous"
+></script>
 <!-- Script JS -->
 <script
   src="{{ url_for('static', filename='js/login.js') }}"

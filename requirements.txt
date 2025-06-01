@@ -4,4 +4,3 @@ Flask==3.0.0
 flask_sqlalchemy==3.1.1
 SQLAlchemy==2.0.25
 gunicorn==23.0.0
-flask-bootstrap5 @ git+https://github.com/kyzima-spb/flask-bootstrap5.git
