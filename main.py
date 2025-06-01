@@ -17,7 +17,7 @@ class Base(DeclarativeBase):
     pass
 
 # Configure the SQLite database and initialize SQLAlchemy with the Flask application
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///' + os.path.join(app.instance_path, 'cinedata.db')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'cinedata.db')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
