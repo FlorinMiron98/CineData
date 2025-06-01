@@ -34,7 +34,7 @@ def load_user(user_id):
 class User(UserMixin, db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     username: Mapped[str] = mapped_column(String(50), unique=True)
-    password: Mapped[str] = mapped_column(String(100))
+    password: Mapped[str] = mapped_column(String)
 
     watchlist: Mapped[list['WatchlistItem']] = relationship('WatchlistItem', backref='user', cascade='all, delete-orphan')
     ratings: Mapped[list['Rating']] = relationship('Rating', backref='user', cascade='all, delete-orphan')
