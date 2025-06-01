@@ -150,7 +150,7 @@ def movie_details():
     if not query:
         return jsonify({'error': 'Missing movei id'}), 400
 
-    omdb_movie_details_url = f'http://www.omdbapi.com/?apikey=${api_key}&i={query}'
+    omdb_movie_details_url = f'http://www.omdbapi.com/?apikey={api_key}&i={query}'
     response = requests.get(omdb_movie_details_url)
     data = response.json()
 
