@@ -7,6 +7,7 @@ from flask_login import UserMixin, login_user, LoginManager, login_required, cur
 from settings import Config
 import secrets
 import os
+import urllib.parse
 
 # Initialize the Flask application and set the secret key
 app = Flask(__name__, instance_relative_config=True)
@@ -238,6 +239,3 @@ def logout():
     """
     logout_user()
     return redirect(url_for('home'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
