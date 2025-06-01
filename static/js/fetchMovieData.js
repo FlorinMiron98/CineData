@@ -1,4 +1,3 @@
-import { API_KEY } from "./config.js";
 import { renderMovieDetails, renderSpinner } from "./renderMovieDialog.js";
 import { renderWatchlistItem } from "./renderWatchlistItem.js";
 import { addToWatchlistDB } from "./addToWatchlist.js";
@@ -15,9 +14,7 @@ const fetchMovieData = async function (movieId, actionType) {
       renderSpinner();
     }
 
-    const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&i=${movieId}`
-    );
+    const response = await fetch(`/api/movie_details?id=${movieId}`);
     const data = await response.json();
 
     // Display dialog

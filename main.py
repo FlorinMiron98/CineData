@@ -115,6 +115,7 @@ def search():
     """
     return render_template('search.html', user=current_user.username)
 
+# Search Movies Route
 @app.route('/api/search_movies')
 def search_movies():
     """
@@ -130,6 +131,27 @@ def search_movies():
 
     omdb_url = f"http://www.omdbapi.com/?apikey={api_key}&s={query}"
     response = requests.get(omdb_url)
+    data = response.json()
+
+    return jsonify(data)
+
+# Fetch Movie Data Route
+@app.route('/api/movie_details')
+def movie_details():
+    """
+    Retrieves detailed information for a specific movie from the OMDb API.
+    Extracts the 'id' query parameter from the request, uses the OMDb API key
+    from environment variables to fetch movie details by IMDb ID, and returns
+    the JSON response to the client.
+    """
+    query = request.args.get('id')
+    api_key = os.getenv('OMDB_API_KEY')
+
+    if not query:
+        return jsonify({'error': 'Missing movei id'}), 400
+
+    omdb_movie_details_url = f'http://www.omdbapi.com/?apikey=${api_key}&i=${query}'
+    response = requests.get(omdb_movie_details_url)
     data = response.json()
 
     return jsonify(data)
