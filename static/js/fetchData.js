@@ -1,4 +1,3 @@
-import { API_KEY } from "./config.js";
 import {
   main,
   renderSpinner,
@@ -17,12 +16,12 @@ const searchMovieForm = document.getElementById("search-movie-form");
 const searchError = document.querySelector(".search-error");
 
 // This function will fetch the movies based on the user's input value
-const fetchData = async function (apiKey, inputValue) {
+const fetchData = async function (inputValue) {
   try {
     renderSpinner();
 
     const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&s=${inputValue}`
+      `/api/search_movies?q=${encodeURIComponent(inputValue)}`
     );
 
     const data = await response.json();
@@ -53,7 +52,7 @@ searchMovieForm.addEventListener("submit", (e) => {
     searchError.classList.add("d-none");
   }
 
-  fetchData(API_KEY, searchMovieInput.value);
+  fetchData(searchMovieInput.value);
 });
 
 handleTabClick();

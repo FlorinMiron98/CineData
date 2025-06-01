@@ -1,5 +1,4 @@
 .venv
 .env
-config.js
 instance
 __pycache__

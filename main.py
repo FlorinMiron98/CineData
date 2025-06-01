@@ -5,6 +5,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, Float, ForeignKey
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from settings import Config
+import requests
 import secrets
 import os
 import urllib.parse
@@ -17,7 +18,6 @@ class Base(DeclarativeBase):
     pass
 
 # Configure the SQLite database and initialize SQLAlchemy with the Flask application
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'cinedata.db')
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
 
@@ -114,6 +114,25 @@ def search():
     Render the search page, passing the current user's username to the template.
     """
     return render_template('search.html', user=current_user.username)
+
+@app.route('/api/search_movies')
+def search_movies():
+    """
+    Search movies using the OMDb API based on a query parameter.
+    Expects a 'q' parameter with the search term. 
+    Returns JSON results from OMDb or an error message if the query is missing.
+    """
+    query = request.args.get('q')
+    api_key = os.getenv('OMDB_API_KEY')
+
+    if not query:
+        return jsonify({'error': 'Missing search query'}), 400
+
+    omdb_url = f"http://www.omdbapi.com/?apikey={api_key}&s={query}"
+    response = requests.get(omdb_url)
+    data = response.json()
+
+    return jsonify(data)
 
 # Create the table for a single movie in the database
 @app.route('/add_to_watchlist', methods=['GET','POST'])
