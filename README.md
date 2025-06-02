@@ -26,8 +26,9 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Rating](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#rating)
    - [Relationships](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#relationships)
 6. Testing
-7. Deployment
-8. [Credits](#credits)
+7. [Security](#security)
+8. Deployment
+9. [Credits](#credits)
    - [Content](#content)
    - [Media](#media)
    - [Code](#code)
@@ -67,6 +68,12 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 12. **os** - Provides access to environment variables and file paths, often used for configuration and security.
 13. **secrets** - Used to generate secure random values, such as secret keys for session management.
 14. **OMDb API** - A free RESTful web service used to fetch movie data such as titles, ratings, posters, and descriptions. More about this API on the [official documentation](https://www.omdbapi.com/)
+
+## Security
+Security is a core consideration in the development of this project, particularly in how user credentials are handled.
+To securely store user passwords, this project uses the `werkzeug.security` module from the **Werkzeug** library. This includes:
+- **Hashing with Salt**: Passwords are hashed using a cryptographic hashing function with an automatically generated salt.
+- **Salt Length**: A salt length of 8 bytes is used to ensure each password hash is unique, even if two users choose the same password.
 
 ## Credits
 ### Content
