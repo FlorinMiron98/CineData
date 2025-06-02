@@ -25,10 +25,14 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Watchlist Item](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#watchlist-item)
    - [Rating](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#rating)
    - [Relationships](https://github.com/FlorinMiron98/CineData/blob/main/DataSchema.md#relationships)
-6. Testing
-7. [Security](#security)
-8. Deployment
-9. [Credits](#credits)
+6. [Testing](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md)
+   - [Validator Testing](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#validator-testing)
+   - [Performance, Accessibility and Best Practices Testing](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#performance-accessibility-and-best-practices-testing)
+   - [Manual Testing](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#manual-testing)
+   - [Bugs](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#bugs)
+8. [Security](#security)
+9. Deployment
+10. [Credits](#credits)
    - [Content](#content)
    - [Media](#media)
    - [Code](#code)
