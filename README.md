@@ -10,7 +10,7 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Project Goals](#project-goals)
    - [User Stories](#user-stories)
    - Design Choices
-2. [Features](https://github.com/FlorinMiron98/CineData/blob/main/README.md)
+2. [Features](https://github.com/FlorinMiron98/CineData/blob/main/Features.md)
    - [Register/Login Page](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#registerlogin-page)
    - [Homepage](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#homepage)
      - [Search Movies Tab](https://github.com/FlorinMiron98/CineData/blob/main/Features.md#search-movies-tab)
