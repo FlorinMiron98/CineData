@@ -79,6 +79,81 @@ To securely store user passwords, this project uses the `werkzeug.security` modu
 - **Hashing with Salt**: Passwords are hashed using a cryptographic hashing function with an automatically generated salt.
 - **Salt Length**: A salt length of 8 bytes is used to ensure each password hash is unique, even if two users choose the same password.
 
+## Deployment
+This project was developed using **Python 3.12, Flask, and SQLAlchemy, with SQLite3** used as the database during local development for simplicity. However, since Heroku **does not support** SQLite3 in production, the application was configured to use **PostgreSQL** for deployment.
+
+### Prerequisites
+- A [Heroku](https://signup.heroku.com/) account
+- [Git](https://git-scm.com/) installed
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
+- Your project structured and working locally
+
+### Local Development Setup
+- **Python Version**: 3.12
+- **Web Framework**: Flask
+- **Database (development)**: SQLite3
+- **ORM**: SQLAlchemy
+- **Template Engine**: Jinja2
+- **Security**: Passwords hashed and salted using `werkzeug.security`
+
+### Deployment Preparation
+- Install dependencies
+  ```
+  pip install -r requirements.txt
+  ```
+- Create a `Procfile` in your project root
+  ```
+  web: gunicorn main:app
+  ```
+- Install Gunicorn (Heroku-compatible WSGI server):
+  ```
+  pip install gunicorn
+  ```
+- Specify Python Version in `.python-version`(3.12)
+- Switch from SQLite to PostgreSQL for Production
+  - In `settings.py` modify the app configuration to use PostgreSQL
+    ```python
+    DATABASE_URL = os.getenv('DATABASE_URL')
+    if DATABASE_URL and DATABASE_URL.startswith('postgres://'):
+        print(True)
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+        SQLALCHEMY_DATABASE_URI = DATABASE_URL
+
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL or f"sqlite:///{os.path.join(os.getcwd(), 'instance', os.getenv('DATABASE_NAME', 'cinedata.db'))}"
+    ```
+
+### Heroku Deployment Steps
+- Log in to Heroku CLI
+  ```
+  heroku login
+  ```
+- Create Heroku App
+  ```
+  heroku create cinedata-app
+  ```
+- Add Heroku PostgreSQL Add-on
+  ```
+  heroku addons:create heroku-postgresql:essential-0
+  ```
+- Push Code to Heroku
+  ```
+  git init
+  git add .
+  git commit -m "Deploy to Heroku"
+  git push heroku main
+  ```
+- Initialize the PostgreSQL Database
+  ```
+  heroku run python
+  >>> from main import db
+  >>> db.create_all()
+  >>> exit()
+  ```
+- Open Heroku App
+  ```
+  heroku open
+  ```
+
 ## Credits
 ### Content
 - [ChatGPT](https://chatgpt.com/) - Used to create content for:
