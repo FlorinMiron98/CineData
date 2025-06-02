@@ -6,7 +6,7 @@
 1. [Validator Testing](#validator-testing)
 2. [Performance, Accessibility and Best Practices Testing](#performance-accessibility-and-best-practices-testing)
 3. [Manual Testing](#manual-testing)
-4. Bugs
+4. [Bugs](#bugs)
 
 ## Validator Testing
 1. [W3C Markup Validator](https://validator.w3.org/)
@@ -96,3 +96,10 @@ The following tables outlines the results of manual testing conducted based on u
    | Register a new account and verify password is not stored in plaintext | Password is hashed and salted in the database using `werkzeug.security` | Passed |
    | Attempt to access the user-specific page without being logged in | Access is denied | Passed |
    | View application logs and confirm no sensitive user data is logged | No personal details are exposed in logs | Passed |
+
+## Bugs
+1. **Error**: `Uncaught TypeError: Cannot read properties of null (reading 'querySelector')`
+   - This error occurs in the browser console when the user first accesses the website, specifically on the login or registration page. It is triggered by JavaScript attempting to access an element that does not exist on that specific page.
+   - This error **does not affect** the functionality or user experience of the application. All features continue to work as expected.
+   ![error](https://github.com/user-attachments/assets/5f90064a-f6d6-439a-8484-f62580e7e46c)
+
