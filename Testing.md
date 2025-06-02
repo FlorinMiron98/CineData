@@ -4,7 +4,7 @@
 
 ## Table of Contents
 1. [Validator Testing](#validator-testing)
-2. Performance, Accessibility and Best Practices Testing
+2. [Performance, Accessibility and Best Practices Testing](#performance-accessibility-and-best-practices-testing)
 3. Manual Testing
 4. Bugs
 
@@ -27,11 +27,14 @@ Performance, accessibility, and best practices tests were conducted using [Googl
   - **Performance**: 100
   - **Accessibility**: 99
   - **Best Practices**: 96
+  
     ![index](https://github.com/user-attachments/assets/8c5e0433-51f7-4196-bf72-fde75422fb57)
 
 - Main page (search.html)
   - **Performance**: 100
   - **Accessibility**: 100
   - **Best Practices**: 100
+
+    ![search](https://github.com/user-attachments/assets/38860c6c-861d-4fb8-943b-ef22581a5f86)
 
 
