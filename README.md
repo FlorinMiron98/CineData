@@ -31,7 +31,7 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
    - [Manual Testing](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#manual-testing)
    - [Bugs](https://github.com/FlorinMiron98/CineData/blob/main/Testing.md#bugs)
 8. [Security](#security)
-9. Deployment
+9. [Deployment](#deployment)
 10. [Credits](#credits)
    - [Content](#content)
    - [Media](#media)
