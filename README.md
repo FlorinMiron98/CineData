@@ -1,5 +1,8 @@
 # CineData
 
+![multiscreen-mockups](https://github.com/user-attachments/assets/429901dc-5e3d-48b0-b5dd-fa808a89efbc)
+
+
 This is a web application inspired by IMDb, built to allow users to browse, search, and view detailed information about movies and TV shows. It features a dynamic user interface, a searchable movie database, and responsive design for an optimal experience across devices.
 
 ## Table of Contents
