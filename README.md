@@ -190,6 +190,8 @@ This project was developed using **Python 3.12, Flask, and SQLAlchemy, with SQLi
 6. Code for register/login form validation messages was created using [Flask Flashing Messages](https://flask.palletsprojects.com/en/stable/patterns/flashing/) and [Jinja2 Conditional Statements](https://jinja.palletsprojects.com/en/stable/templates/)
 7. Code for displaying the movie details modal was created using [Bootstrap Modals](https://getbootstrap.com/docs/5.3/components/modal/#how-it-works) and slightly modified to fit the project's needs.
 8. Code for interactions feedback was created using [Bootstrap Toasts](https://getbootstrap.com/docs/5.3/components/toasts/#overview) and slightly modified to fit the project's needs.
-9. Code for adding the correct CSS prefixes to ensure the cross-browser compatibility was created using [Autoprefixer CSS online](https://autoprefixer.github.io/).
+9. Code for search movies loader was created using [CSS Loaders](https://cssloaders.github.io/)
+10. Code for movie details modal loader was created using this [W3C article](https://www.w3schools.com/howto/howto_css_loader.asp) and slightly modified to fit he project's needs.
+11. Code for adding the correct CSS prefixes to ensure the cross-browser compatibility was created using [Autoprefixer CSS online](https://autoprefixer.github.io/).
 ### Inspirations
 - [IMDb](https://www.imdb.com/) - For the colors.
