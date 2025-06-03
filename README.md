@@ -68,6 +68,7 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 - **SQLite3** - was used during development for its simplicity and zero-config setup, ideal for local testing and debugging.
 - **PostgreSQL (via Heroku add-on)** - is used in production to support scalability, reliability, and better concurrency.
 - **SQLAlchemy** - serves as the ORM layer to abstract away raw SQL queries and enforce a clean data model.
+
 The app is structured to detect and adapt to different environments (development vs. production) — e.g., switching between SQLite and PostgreSQL automatically.
 
 ## Technologies Used
