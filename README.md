@@ -57,6 +57,19 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 6. As a user, I want to access the website on any device (desktop, tablet, or mobile), so that I can enjoy the same seamless experience regardless of my device.
 7. As a user, I want to trust that my personal data and login information are secure, so that I can feel safe while using the website and managing my movie preferences.
 
+## Design Choices
+### Architecture and Frameworks
+- **Flask** - was chosen for its lightweight and flexible structure, which fits well with small-to-medium web applications and rapid development needs.
+- **Jinja2** - a templating engine used to render dynamic HTML content from the backend, allowing tight integration with Flask routes and logic.
+### Frontend Design
+- **CSS with Bootstrap5** - used primarily for its utility classes and pre-built responsive components, helping achieve consistent styling quickly. Components such as tabs, forms, and toasts leverage Bootstrap to improve UX.
+- **JavaScript** - JavaScript modules were used to modularize interaction logic and keep code maintainable.
+### Database and ORM
+- **SQLite3** - was used during development for its simplicity and zero-config setup, ideal for local testing and debugging.
+- **PostgreSQL (via Heroku add-on)** - is used in production to support scalability, reliability, and better concurrency.
+- **SQLAlchemy** - serves as the ORM layer to abstract away raw SQL queries and enforce a clean data model.
+The app is structured to detect and adapt to different environments (development vs. production) — e.g., switching between SQLite and PostgreSQL automatically.
+
 ## Technologies Used
 1. **HTML5** - The foundational markup language for structuring web content.
 2. **CSS3** - Used for styling and layout, enhancing the visual appearance of the project.
