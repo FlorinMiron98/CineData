@@ -36,10 +36,10 @@ This is a web application inspired by IMDb, built to allow users to browse, sear
 8. [Security](#security)
 9. [Deployment](#deployment)
 10. [Credits](#credits)
-   - [Content](#content)
-   - [Media](#media)
-   - [Code](#code)
-   - [Inspirations](#inspirations)
+    - [Content](#content)
+    - [Media](#media)
+    - [Code](#code)
+    - [Inspirations](#inspirations)
 
 ## UX
 ### Project Goals
