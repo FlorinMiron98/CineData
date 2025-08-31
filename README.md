@@ -132,7 +132,6 @@ This project was developed using **Python 3.12, Flask, and SQLAlchemy, with SQLi
     ```python
     DATABASE_URL = os.getenv('DATABASE_URL')
     if DATABASE_URL and DATABASE_URL.startswith('postgres://'):
-        print(True)
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
         SQLALCHEMY_DATABASE_URI = DATABASE_URL
 
